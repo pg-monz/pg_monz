@@ -1229,7 +1229,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_idx_tup_read[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_idx_tup_fetch[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
