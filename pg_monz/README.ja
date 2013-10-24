@@ -1,0 +1,91 @@
+PostgreSQL monitoring template for Zabbix (pg_monz) version 1.0
+
+
+PostgreSQL monitoring template for Zabbix (pg_monz) とは
+========================================================
+
+PostgreSQL monitoring template for Zabbix (pg_monz) は、
+Zabbix で PostgreSQL の各種監視を行うためのテンプレートです。
+
+PostgreSQL の死活監視、リソース監視、性能監視などが行えます。
+Zabbix のディスカバリ機能を利用し、データベースやテーブルを自動検出し、
+自動で監視を開始することができます。
+
+pg_monz は以下の内容で構成されています。
+
+* pg_monz_template.xml    : 監視テンプレート
+* userparameter_pgsql.conf: エージェント用ユーザパラメータ設定ファイル
+* find_dbname.sh          : データベースディスカバリスクリプト
+* find_dbname_table.sh    : テーブルディスカバリスクリプト
+
+動作環境
+========
+
+pg_monz を使用するにはは以下のソフトウェアが必要です。
+
+* Zabbix 2.0 以上
+* PostgreSQL 9.2 以上
+
+インストール方法
+================
+
+上記ソフトウェアのインストール、設定が既に完了していることを前提とします。
+
+1. 設定ファイル、スクリプトのインストール
+-----------------------------------------
+
+userparameter_pgsql.conf 設定ファイルを Zabbix エージェントがインストール
+されているマシンの所定の場所にコピーします。
+例えば、 Zabbix エージェントが /usr/local/zabbix/ にインストールされている
+場合は、以下の場所にファイルをコピーします。
+
+/usr/local/zabbix/etc/zabbix_agentd.conf.d/userparameter_pgsql.conf
+
+また、 zabbix_agentd.conf で上記ファイルが読み込まれるように、
+Include 設定を追加します。
+
+Include=/usr/local/zabbix/etc/zabbix_agentd.conf.d/
+
+※設定の反映には再起動が必要です。
+
+次に、ディスカバリで使用するスクリプトをコピーし、実行権限を付加します。
+デフォルトでは /usr/local/bin 以下にインストールされることを想定しています。
+
+# cp find_dbname.sh find_dbname_table.sh /usr/local/bin
+# chmod +x /usr/local/bin/find_dbname.sh
+# chmod +x /usr/local/bin/find_dbname_table.sh
+
+2. テンプレートのインポート
+---------------------------
+
+Zabbix の Web 管理画面にログインし、テンプレートをインポートします。
+
+3. テンプレートのマクロの設定
+-----------------------------
+
+実際の環境にあわせて、テンプレートのマクロの設定を修正します。
+
+使用方法
+========
+
+実際に監視を行うまでの流れを説明します。
+
+1. PostgreSQL ホストの作成
+--------------------------
+
+2. テンプレートの適用
+---------------------
+
+3. 監視結果の確認
+-----------------
+
+
+各アイテムの説明
+================
+
+
+ライセンス
+==========
+
+pg_monz は Apache License Version 2.0 の元で配布されています。
+ライセンスの内容は LICENSE ファイルを参照して下さい。
