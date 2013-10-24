@@ -2177,11 +2177,11 @@
                 </macro>
                 <macro>
                     <macro>{$PGCHECKPOINTS_THRESHOLD}</macro>
-                    <value>5</value>
+                    <value>10</value>
                 </macro>
                 <macro>
                     <macro>{$PGCONNECTIONS_THRESHOLD}</macro>
-                    <value>100</value>
+                    <value>95</value>
                 </macro>
                 <macro>
                     <macro>{$PGDATABASE}</macro>
