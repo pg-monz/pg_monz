@@ -21,15 +21,25 @@ GETDB="select datname from pg_database where datistemplate = 'f';"
 # 
 # :Customize Example
 #
-# For pgbench_tables, set the GETTABLE as 
-# GETTABLE="select * from pg_tables where tablename in \ 
-# ('pgbench_accounts','pgbench_branches','pgbench_history','pgbench_tellers');"
+# For pgbench tables, set the GETTABLE as 
+#GETTABLE="select \
+#            row_to_json(t) \
+#          from (
+#            select current_database() as "{#DBNAME}\",schemaname as \"{#SCHEMANAME}\",tablename as \"{#TABLENAME}\" \
+#            from \
+#              pg_tables \
+#            where \
+#              schemaname not in ('pg_catalog','information_schema') \
+#            and \
+#              tablename in ('pgbench_accounts','pgbench_branches','pgbench_history','pgbench_tellers') \
+#           ) as t" 
  
-GETTABLE="select tablename from pg_tables where schemaname not in ('pg_catalog','information_schema');"
+
+GETTABLE="select row_to_json(t) from (select current_database() as \"{#DBNAME}\",schemaname as \"{#SCHEMANAME}\",tablename as \"{#TABLENAME}\" from pg_tables where schemaname not in ('pg_catalog','information_schema')) as t"
 
 for dbname in $(psql -h $1 -p $2 -U $3 -d $4 -t -c "${GETDB}"); do
     for tablename in $(psql -h $1 -p$2 -U $3 -d $dbname -t -c "${GETTABLE}"); do
-    dblist="$dblist,"'{"{#DBNAME}":"'$dbname'","{#TABLENAME}":"'$tablename'"}'
+    dblist="$dblist,"$tablename
     done
 done
 echo '{"data":['${dblist#,}' ]}'

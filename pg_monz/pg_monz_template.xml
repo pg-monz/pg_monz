@@ -912,12 +912,12 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) analyze count</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) analyze count</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_analyze_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_analyze_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -951,12 +951,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) autoanalyze count</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) autoanalyze count</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_autoanalyze_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_autoanalyze_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -990,12 +990,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) autovacuum count</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) autovacuum count</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_autovacuum_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_autovacuum_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1029,12 +1029,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) cache hit ratio %</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) cache hit ratio %</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_cachehit_ratio[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_cachehit_ratio[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1068,12 +1068,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of dead tuples</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of dead tuples</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_dead_tup[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_dead_tup[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1107,12 +1107,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of delete tuples (tuples/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of delete tuples (tuples/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_tup_del[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_tup_del[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1146,12 +1146,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of hot update tuples (tuples/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of hot update tuples (tuples/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_tup_hot_upd[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_tup_hot_upd[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1185,12 +1185,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of index scan (scans/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of index scan (scans/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_idx_scan[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_idx_scan[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1224,12 +1224,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of index tuples read (tuples/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of index tuples read (tuples/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_idx_tup_fetch[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_idx_tup_fetch[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1263,12 +1263,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of insert tuples (tuples/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of insert tuples (tuples/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_tup_ins[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_tup_ins[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1302,12 +1302,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of live tuples</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of live tuples</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_live_tup[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_live_tup[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1341,12 +1341,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of sequencial scan (scans/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of sequencial scan (scans/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_seq_scan[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_seq_scan[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1380,12 +1380,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) number of update tuples (tuples/s)</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of update tuples (tuples/s)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_n_tup_upd[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_n_tup_upd[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -1419,12 +1419,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] ({#TABLENAME}) vacuum count</name>
+                            <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) vacuum count</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.table_vacuum_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#TABLENAME}]</key>
+                            <key>psql.table_vacuum_count[{$PGHOST},{$PGPORT},{$PGROLE},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
