@@ -140,7 +140,7 @@ navbar_list :
     link: /index.html#install
   - name: 使用方法
     link: /index.html#usage
-  - name: 各アイテムの説明
+  - name: 監視項目
     link: /index.html#items
   - name: 問い合わせ先
     link: /index.html#contact
