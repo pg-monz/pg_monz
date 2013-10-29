@@ -134,6 +134,8 @@ navbar_list :
     link: /index.html#about
   - name: リリースノート
     link: /index.html#releases
+  - name: ダウンロード
+    link: /index.html#download
   - name: 動作環境
     link: /index.html#software
   - name: インストール方法

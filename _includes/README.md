@@ -16,6 +16,10 @@ pg_monz は以下の内容で構成されています。
 
 * 2013/11/05 ver.1.0
 
+# ダウンロード {#download}
+
+[Download from GitHub releases page](https://github.com/pg-monz/pg_monz/releases)
+
 # 動作環境 {#software}
 
 pg_monz を使用するには以下のソフトウェアが必要です。  
