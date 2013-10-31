@@ -29,3 +29,6 @@ http://pg-monz.github.io/pg_monz/
 
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 ライセンスの内容は LICENSE ファイルを参照して下さい。
+
+Copyright (C) 2013 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013 TIS Inc. All Rights Reserved.
