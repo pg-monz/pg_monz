@@ -212,5 +212,4 @@ pg_monzユーザーグループ
 # ライセンス {#license}
 
 pg_monz は Apache License Version 2.0 の元で配布されています。  
-ライセンスの内容は LICENSE ファイルを参照して下さい。
-
+Apache License Version 2.0 の全文は [こちら](http://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
