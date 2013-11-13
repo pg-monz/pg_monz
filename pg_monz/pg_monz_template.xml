@@ -655,7 +655,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,]</key>
+                    <key>proc.num[,postgres,,]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2302,7 +2302,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{PostgreSQL Check:proc.num[postgres,,,].last(0)}=0</expression>
+            <expression>{PostgreSQL Check:proc.num[,postgres,,].last(0)}=0</expression>
             <name>PostgreSQL process is not running.</name>
             <url/>
             <status>0</status>
