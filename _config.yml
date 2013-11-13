@@ -131,20 +131,42 @@ JB :
 
 navbar_list :
   - name: pg_monz とは
+    name_en: About pg_monz
     link: /index.html#about
+    link_en: /index-en.html#about
   - name: リリースノート
+    name_en: Release Note
     link: /index.html#releases
+    link_en: /index-en.html#releases
   - name: ダウンロード
+    name_en: Download
     link: /index.html#download
+    link_en: /index-en.html#download
   - name: 動作環境
+    name_en: Software
     link: /index.html#software
+    link_en: /index-en.html#software
   - name: インストール方法
+    name_en: Install
     link: /index.html#install
+    link_en: /index-en.html#install
   - name: 使用方法
+    name_en: Usage
     link: /index.html#usage
+    link_en: /index-en.html#usage
   - name: 監視項目
+    name_en: Items
     link: /index.html#items
+    link_en: /index-en.html#items
   - name: 問い合わせ先
+    name_en: Contact
     link: /index.html#contact
+    link_en: /index-en.html#contact
   - name: ライセンス
+    name_en: License
     link: /index.html#license
+    link_en: /index.html#license
+  - name: English
+    name_en: 日本語
+    link: /index-en.html
+    link_en: /index.html

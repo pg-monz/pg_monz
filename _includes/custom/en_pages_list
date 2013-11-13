@@ -1,0 +1,3 @@
+{% for node in site.navbar_list %}
+<li><a href="{{ BASE_PATH }}{{node.link_en}}">{{ node.name_en }}</a></li>
+{% endfor %}
