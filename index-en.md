@@ -1,7 +1,7 @@
 ---
 layout: en_page
-title: Zabbix monitoring template for PostgreSQL Database (pg_monz)
-tagline: Zabbix monitoring template for PostgreSQL Database
+title: PostgreSQL monitoring template for Zabbix (pg_monz)
+tagline: PostgreSQL monitoring template for Zabbix
 ---
 {% include JB/setup %}
 
