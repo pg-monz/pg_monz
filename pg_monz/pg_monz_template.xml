@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>PostgreSQL Check</template>
-            <name>PostgreSQL Check</name>
+            <template>Template App PostgreSQL</template>
+            <name>Template App PostgreSQL</name>
             <groups>
                 <group>
                     <name>Templates</name>
@@ -1958,7 +1958,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{PostgreSQL Check:psql.cachehit_ratio[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].avg(300)}&lt;{$PGCACHEHIT_THRESHOLD}</expression>
+                            <expression>{Template App PostgreSQL:psql.cachehit_ratio[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].avg(300)}&lt;{$PGCACHEHIT_THRESHOLD}</expression>
                             <name>[{#DBNAME}] Cache hit ratio is too low</name>
                             <url/>
                             <status>0</status>
@@ -1967,7 +1967,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{PostgreSQL Check:psql.db_size[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGDBSIZE_THRESHOLD}</expression>
+                            <expression>{Template App PostgreSQL:psql.db_size[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGDBSIZE_THRESHOLD}</expression>
                             <name>[{#DBNAME}] DB Size is too large</name>
                             <url/>
                             <status>0</status>
@@ -1976,7 +1976,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{PostgreSQL Check:psql.db_deadlocks[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGDEADLOCK_THRESHOLD}</expression>
+                            <expression>{Template App PostgreSQL:psql.db_deadlocks[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGDEADLOCK_THRESHOLD}</expression>
                             <name>[{#DBNAME}] Deadlocks occurred too frequently</name>
                             <url/>
                             <status>0</status>
@@ -1985,7 +1985,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{PostgreSQL Check:psql.db_temp_bytes[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGTEMPBYTES_THRESHOLD}</expression>
+                            <expression>{Template App PostgreSQL:psql.db_temp_bytes[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}].last(0)}&gt;{$PGTEMPBYTES_THRESHOLD}</expression>
                             <name>[{#DBNAME}] Too many temp bytes</name>
                             <url/>
                             <status>0</status>
@@ -2021,7 +2021,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.cachehit_ratio[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2053,7 +2053,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.db_size[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2085,7 +2085,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.db_deadlocks[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2117,7 +2117,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.db_tx_commited[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2129,7 +2129,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.db_tx_rolledback[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2161,7 +2161,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>PostgreSQL Check</host>
+                                        <host>Template App PostgreSQL</host>
                                         <key>psql.db_temp_bytes[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
@@ -2252,7 +2252,7 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Checkpoint count</name>
-                                <host>PostgreSQL Check</host>
+                                <host>Template App PostgreSQL</host>
                             </resource>
                         </screen_item>
                         <screen_item>
@@ -2272,7 +2272,7 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Connection count</name>
-                                <host>PostgreSQL Check</host>
+                                <host>Template App PostgreSQL</host>
                             </resource>
                         </screen_item>
                     </screen_items>
@@ -2282,7 +2282,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{PostgreSQL Check:psql.checkpoints_req[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}&gt;{$PGCHECKPOINTS_THRESHOLD}</expression>
+            <expression>{Template App PostgreSQL:psql.checkpoints_req[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}&gt;{$PGCHECKPOINTS_THRESHOLD}</expression>
             <name>Checkpoints are occurring too frequently</name>
             <url/>
             <status>0</status>
@@ -2292,7 +2292,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{PostgreSQL Check:psql.server_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}&gt;{$PGCONNECTIONS_THRESHOLD}</expression>
+            <expression>{Template App PostgreSQL:psql.server_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}&gt;{$PGCONNECTIONS_THRESHOLD}</expression>
             <name>Many connections are forked.</name>
             <url/>
             <status>0</status>
@@ -2302,7 +2302,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{PostgreSQL Check:proc.num[,postgres,,].last(0)}=0</expression>
+            <expression>{Template App PostgreSQL:proc.num[,postgres,,].last(0)}=0</expression>
             <name>PostgreSQL process is not running.</name>
             <url/>
             <status>0</status>
@@ -2312,7 +2312,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{PostgreSQL Check:psql.running[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}#0</expression>
+            <expression>{Template App PostgreSQL:psql.running[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}].last(0)}#0</expression>
             <name>PostgreSQL service is not running.</name>
             <url/>
             <status>0</status>
@@ -2322,7 +2322,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{PostgreSQL Check:psql.slow_queries[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{$PGSLOWQUERY_THRESHOLD}].last(0)}&gt;{$PGSLOWQUERY_THRESHOLD}</expression>
+            <expression>{Template App PostgreSQL:psql.slow_queries[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{$PGSLOWQUERY_THRESHOLD}].last(0)}&gt;{$PGSLOWQUERY_THRESHOLD}</expression>
             <name>Too many slow queries</name>
             <url/>
             <status>0</status>
@@ -2359,7 +2359,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.checkpoints_req[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2371,7 +2371,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.checkpoints_timed[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2403,7 +2403,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.idle_tx_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2415,7 +2415,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.idle_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2427,7 +2427,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.active_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2439,7 +2439,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.locks_waiting[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
@@ -2451,7 +2451,7 @@
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>PostgreSQL Check</host>
+                        <host>Template App PostgreSQL</host>
                         <key>psql.server_connections[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     </item>
                 </graph_item>
