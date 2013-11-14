@@ -9,7 +9,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : pg_monz
-tagline: Zabbix monitoring template for PostgreSQL Database
+tagline: PostgreSQL monitoring template for Zabbix
 author :
   # name : pg_monz User Group
   # email : pg_monz@googlegroups.com
@@ -135,7 +135,7 @@ navbar_list :
     link: /index.html#about
     link_en: /index-en.html#about
   - name: リリースノート
-    name_en: Release Note
+    name_en: Release notes
     link: /index.html#releases
     link_en: /index-en.html#releases
   - name: ダウンロード
@@ -143,11 +143,11 @@ navbar_list :
     link: /index.html#download
     link_en: /index-en.html#download
   - name: 動作環境
-    name_en: Software
+    name_en: Requirements
     link: /index.html#software
     link_en: /index-en.html#software
   - name: インストール方法
-    name_en: Install
+    name_en: Installation
     link: /index.html#install
     link_en: /index-en.html#install
   - name: 使用方法
@@ -155,7 +155,7 @@ navbar_list :
     link: /index.html#usage
     link_en: /index-en.html#usage
   - name: 監視項目
-    name_en: Items
+    name_en: Monitoring items
     link: /index.html#items
     link_en: /index-en.html#items
   - name: 問い合わせ先
