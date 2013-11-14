@@ -167,6 +167,6 @@ navbar_list :
     link: /index.html#license
     link_en: /index-en.html#license
   - name: English
-    name_en: 日本語
+    name_en: Japanese
     link: /index-en.html
     link_en: /index.html
