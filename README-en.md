@@ -33,5 +33,5 @@ License
 Pg_monz is distributed under the Apache License Version 2.0.
 See the LICENSE file for details.
 
-Copyright (C) 2013 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.
