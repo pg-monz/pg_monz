@@ -214,7 +214,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 
 # Contact {#contact}
 
-pg_monz Users Group
+pg_monz Users Group  
 <pg_monz@googlegroups.com>
 
 # License {#license}
@@ -222,5 +222,5 @@ pg_monz Users Group
 pg_monz is distributed under the Apache License Version 2.0. 
 The whole text of Apache License Version 2.0 can be referred to [here](http://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.  
 Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.

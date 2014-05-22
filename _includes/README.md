@@ -206,7 +206,7 @@ PostgreSQL ホストを作成します。
 
 # 問い合わせ先 {#contact}
 
-pg_monzユーザーグループ
+pg_monzユーザーグループ  
 <pg_monz@googlegroups.com>
 
 # ライセンス {#license}
@@ -214,5 +214,5 @@ pg_monzユーザーグループ
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 Apache License Version 2.0 の全文は [こちら](http://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
 
-Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.  
 Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.
