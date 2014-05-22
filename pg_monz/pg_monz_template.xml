@@ -338,12 +338,12 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Commited transactions</name>
+                    <name>Committed transactions</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>psql.tx_commited[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
+                    <key>psql.tx_committed[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE}]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1566,12 +1566,12 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] Commited transactions</name>
+                            <name>[{#DBNAME}] Committed transactions</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>psql.db_tx_commited[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
+                            <key>psql.db_tx_committed[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -2118,7 +2118,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.db_tx_commited[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
+                                        <key>psql.db_tx_committed[{$PGHOST},{$PGPORT},{$PGROLE},{$PGDATABASE},{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
