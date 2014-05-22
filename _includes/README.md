@@ -68,7 +68,7 @@ Zabbix の Web 管理画面にログインし、以下の手順でテンプレ�
 ![template_list]({{ site.production_url }}/assets/images/template_list.png)
 右上の「インポート (Import)」をクリックして表示される画面で、「インポートするファイル (Import file)」に pg_monz_template.xml を選択して「インポート (Import)」をクリックします。
 ![template_import]({{ site.production_url }}/assets/images/template_import.png)
-インポートに成功すると、テンプレート一覧に「PostgreSQL Check」が追加されます。
+インポートに成功すると、テンプレート一覧に「Template App PostgreSQL」が追加されます。
 ![template_imported]({{ site.production_url }}/assets/images/template_imported.png)
 
 ## 3. テンプレートのマクロの設定
@@ -76,7 +76,7 @@ Zabbix の Web 管理画面にログインし、以下の手順でテンプレ�
 テンプレートを適用する環境にあわせて、以下の手順でテンプレートのマクロの設定を修正します。
 
 タブの「設定 (Configuration)」 - 「テンプレート (Templates)」を選択して表示された
-テンプレート一覧から「PostgreSQL Check」をクリックし、「マクロ (Macros)」タブを選択します。
+テンプレート一覧から「Template App PostgreSQL」をクリックし、「マクロ (Macros)」タブを選択します。
 ![template_macro]({{ site.production_url }}/assets/images/template_macro.png)
 各マクロの値を環境にあわせて修正した後、「保存 (Save)」をクリックします。  
 通常修正する必要があるマクロは以下の通りです。
@@ -102,8 +102,8 @@ PostgreSQL ホストを作成します。
 ![host_list]({{ site.production_url }}/assets/images/host_list.png)
 右上の「ホストの作成 (Create host)」をクリックし、監視対象のホスト名、グループ等を設定します。
 ![host_config]({{ site.production_url }}/assets/images/host_config.png)
-「テンプレート (Templates)」タブを選択して「追加 (Add)」をクリックし、
-「PostgreSQL Check」を選択して「選択 (Select)」、「保存 (Save)」をクリックします。
+「テンプレート (Templates)」タブを選択して「新規テンプレートをリンク(Link new templates)」より、
+「Template App PostgreSQL」を検索して「追加 (Add)」、「保存 (Save)」をクリックします。
 ![host_template_select]({{ site.production_url }}/assets/images/host_template_select.png)
 
 ## 2. 監視結果の確認
@@ -214,5 +214,5 @@ pg_monzユーザーグループ
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 Apache License Version 2.0 の全文は [こちら](http://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
 
-Copyright (C) 2013 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.

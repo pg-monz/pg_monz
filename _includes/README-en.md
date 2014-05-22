@@ -78,7 +78,7 @@ Select 'Configuration' - 'Templates' tab and display templates list.
 ![template_list]({{ site.production_url }}/assets/images/template_list.png)
 Click 'Import' at the upper right, select pg_monz_template.xml on 'Import file' and click 'Import'.
 ![template_import]({{ site.production_url }}/assets/images/template_import.png)
-If successful, 'PostgreSQL Check' will be added on the templates list.
+If successful, 'Template App PostgreSQL' will be added on the templates list.
 ![template_imported]({{ site.production_url }}/assets/images/template_imported.png)
 
 ## 3. Configuration of template macros
@@ -86,7 +86,7 @@ If successful, 'PostgreSQL Check' will be added on the templates list.
 Modify the configuration of template macros according to the system environments by the following procedure:
 
 Select 'Configuration' - 'Templates' tab and display templates list.
-Click 'PostgreSQL Check' and select 'Macros' tab.
+Click 'Template App PostgreSQL' and select 'Macros' tab.
 ![template_macro]({{ site.production_url }}/assets/images/template_macro.png)
 Modify the values of each macro according to the system environments and click 'Save'.
 Normally following macros will require modifications.
@@ -113,7 +113,7 @@ Select 'Configuration' - 'Hosts' tab and display hosts list.
 Click 'Create host' at the upper right and configure host name, groups etc. of target.
 ![host_config]({{ site.production_url }}/assets/images/host_config.png)
 Select 'Templates' tab and click 'Add'.
-Select 'PostgreSQL Check' and click 'Select' and 'Save'.
+Select 'Template App PostgreSQL' and click 'Select' and 'Save'.
 ![host_template_select]({{ site.production_url }}/assets/images/host_template_select.png)
 
 ## 2. Check the result of monitoring
@@ -222,5 +222,5 @@ pg_monz Users Group
 pg_monz is distributed under the Apache License Version 2.0. 
 The whole text of Apache License Version 2.0 can be referred to [here](http://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright (C) 2013 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.
