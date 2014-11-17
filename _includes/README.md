@@ -14,7 +14,8 @@ pg_monz は以下の内容で構成されています。
 
 # リリースノート {#releases}
 
-* 2013/11/05 ver.1.0
+* [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
+* [2013/11/05 ver.1.0.0](https://github.com/pg-monz/pg_monz/releases/tag/1.0)
 
 # ダウンロード {#download}
 
@@ -59,6 +60,8 @@ cp find_dbname.sh find_dbname_table.sh /usr/local/bin
 chmod +x /usr/local/bin/find_dbname.sh
 chmod +x /usr/local/bin/find_dbname_table.sh
 {% endhighlight %}
+
+psqlを利用する際にパスワード認証が必要な場合はZabbixエージェントの起動ユーザのホームディレクトリに.pgpassの設定が必要となります。
 
 ## 2. テンプレートのインポート
 

@@ -185,13 +185,13 @@ th {
 	font-size: 18px;
 	font-weight: normal;
   padding: 10px;
-  background: #232323;
+  background: #1D467A;
   color: #FDFEFB;
  }
 
 td {
   padding: 10px;
-	background: #ccc;
+	background: #eee;
  }
 
 
@@ -204,20 +204,29 @@ td {
 /* Header */
 
 header {
-	background-color: #171717;
-	color: #FDFDFB;
+	background-color: ##FBFAF7;
+	color: #171717;
   width:170px;
   float:left;
   position:fixed;
-	border: 1px solid #000;
 	-webkit-border-top-right-radius: 4px;
 	-webkit-border-bottom-right-radius: 4px;
 	-moz-border-radius-topright: 4px;
 	-moz-border-radius-bottomright: 4px;
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
+
+  /* border-radius */
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+
+  /* box-shadow */
+  box-shadow:rgba(113, 135, 164, 0.3) 0px 0px 10px 4px inset;
+  -webkit-box-shadow:rgba(113, 135, 164, 0.3) 0px 0px 10px 4px inset;
+  -moz-box-shadow:rgba(113, 135, 164, 0.3) 0px 0px 10px 4px inset;
 	padding: 34px 25px 22px 50px;
-	margin: 30px 25px 0 0;
+	margin: 30px 25px 0 5px;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -260,6 +269,33 @@ header li {
 	line-height: 1em;
 	padding: 6px 6px 6px 7px;
 
+  font-weight: bold;
+  color: #FFFFFF !important;
+  box-shadow: 1px 1px 1px #BEE2F9;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 2px solid #3866A3;
+  background: #1D467A;
+}
+
+header li:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+header lia {
+	list-style-type: none;
+  width:132px;
+  height:15px;
+	margin-bottom: 12px;
+	line-height: 1em;
+	padding: 6px 6px 6px 7px;
+
 	background: #AF0011;
 	background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
@@ -276,7 +312,7 @@ header li {
 	
 }
 
-header li:hover {
+header lia:hover {
 	background: #C3001D;
 	background: -moz-linear-gradient(top, #C3001D 0%, #950119 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
