@@ -17,7 +17,8 @@ Pg_monz consists of the following contents:
 
 # Release notes {#releases}
 
-* 2013/11/05 ver.1.0
+* [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
+* [2013/11/05 ver.1.0.0](https://github.com/pg-monz/pg_monz/releases/tag/1.0)
 
 # Download {#download}
 
@@ -68,6 +69,8 @@ cp find_dbname.sh find_dbname_table.sh /usr/local/bin
 chmod +x /usr/local/bin/find_dbname.sh
 chmod +x /usr/local/bin/find_dbname_table.sh
 {% endhighlight %}
+
+If the user of executing psql need password authentication you should make .pgpass file and put it in the home directory of Zabbix Agent starting user.
 
 ## 2. Import of template
 
