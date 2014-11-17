@@ -10,7 +10,7 @@ discovery feature of Zabbix and can automatically start monitoring.
 Release note
 ============
 
-* 2013/11/05 ver.1.0
+* [Show release page](https://github.com/pg-monz/pg_monz/releases)
 
 System requirements
 ===================
