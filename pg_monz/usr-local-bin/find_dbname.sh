@@ -8,9 +8,12 @@
 # If you want to monitor "foo" and "bar" databases, you set the GETDB as
 # GETDB="select datname from pg_database where datname in ('foo','bar');"
 
+PGSHELL_CONFDIR="$1"
+source $PGSHELL_CONFDIR/pgsql_funcs.conf
+
 GETDB="select datname from pg_database where datistemplate = 'f';"
 
-for dbname in $(psql -h $1 -p $2 -U $3 -d $4 -t -c "${GETDB}"); do
+for dbname in $(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE  -t -c "${GETDB}"); do
     dblist="$dblist,"'{"{#DBNAME}":"'$dbname'"}'
 done
 echo '{"data":['${dblist#,}' ]}'
