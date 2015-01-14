@@ -21,7 +21,7 @@
             </groups>
             <applications>
                 <application>
-                    <name>pg.activity</name>
+                    <name>pg.connections</name>
                 </application>
                 <application>
                     <name>pg.bgwriter</name>
@@ -92,7 +92,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -436,7 +436,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -479,7 +479,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -522,7 +522,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -565,7 +565,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -651,7 +651,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.activity</name>
+                            <name>pg.connections</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -873,12 +873,12 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>pgsql.get.pg.activity</name>
+                    <name>pgsql.get.pg.connections</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.activity[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
+                    <key>pgsql.get.pg.connections[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
                     <delay>10</delay>
                     <history>90</history>
                     <trends>365</trends>

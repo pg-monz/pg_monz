@@ -18,7 +18,7 @@ TIMESTAMP_QUERY='extract(epoch from now())::int'
 #  MAIN SCRIPT
 #===============================================================================
 case "$APP_NAME" in
-	pg.activity)
+	pg.connections)
 		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c  \
 			"select '$HOST_NAME', 'psql.active_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active') \
 			union all \
