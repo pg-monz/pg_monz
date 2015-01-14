@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-13T07:25:32Z</date>
+    <date>2015-01-14T07:41:46Z</date>
     <groups>
         <group>
             <name>Discovered hosts</name>
@@ -21,10 +21,10 @@
             </groups>
             <applications>
                 <application>
-                    <name>pg.connections</name>
+                    <name>pg.bgwriter</name>
                 </application>
                 <application>
-                    <name>pg.bgwriter</name>
+                    <name>pg.connections</name>
                 </application>
                 <application>
                     <name>pg.get</name>
@@ -873,12 +873,12 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>pgsql.get.pg.connections</name>
+                    <name>pgsql.get.pg.bgwriter</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.connections[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
+                    <key>pgsql.get.pg.bgwriter[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>10</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -916,12 +916,12 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>pgsql.get.pg.bgwriter</name>
+                    <name>pgsql.get.pg.connections</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.bgwriter[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
+                    <key>pgsql.get.pg.connections[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>10</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -964,7 +964,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.slow_query[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{$PGSLOWQUERY_THRESHOLD}]</key>
+                    <key>pgsql.get.pg.slow_query[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{$PGSLOWQUERY_THRESHOLD}]</key>
                     <delay>30</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1007,7 +1007,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.sr.status[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
+                    <key>pgsql.get.pg.sr.status[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>10</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2070,7 +2070,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>pgsql.get.pg.stat_table[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                            <key>pgsql.get.pg.stat_table[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                             <delay>30</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -2172,18 +2172,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>0000C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C8C800</color>
@@ -2205,6 +2193,30 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_n_tup_ins[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_n_tup_hot_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2231,18 +2243,6 @@
                                         <key>psql.table_n_tup_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
-                                <graph_item>
-                                    <sortorder>4</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_n_tup_hot_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
@@ -2263,6 +2263,30 @@
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_n_live_tup[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>1</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
                                 <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
@@ -2287,30 +2311,6 @@
                                         <key>psql.table_autovacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>1</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_n_live_tup[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
@@ -2332,18 +2332,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_seq_scan[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
@@ -2353,6 +2341,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_idx_scan[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_seq_scan[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2375,18 +2375,6 @@
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
                                 <graph_item>
                                     <sortorder>3</sortorder>
                                     <drawtype>0</drawtype>
@@ -2421,6 +2409,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_autovacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2850,7 +2850,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>pgsql.get.pg.size[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{#DBNAME}]</key>
+                            <key>pgsql.get.pg.size[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME}]</key>
                             <delay>10</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -2893,7 +2893,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>pgsql.get.pg.stat_database[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{#DBNAME}]</key>
+                            <key>pgsql.get.pg.stat_database[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME}]</key>
                             <delay>10</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -3376,6 +3376,18 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.db_fetched[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
                                     <sortorder>4</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C8C8</color>
@@ -3400,30 +3412,6 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.db_deleted[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.db_fetched[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C800C8</color>
@@ -3433,6 +3421,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.db_returned[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.db_deleted[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3544,30 +3544,6 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_bufferpin[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>4</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_deadlock[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C8C8</color>
@@ -3580,6 +3556,18 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.confl_bufferpin[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>0000C8</color>
@@ -3589,6 +3577,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.confl_lock[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.confl_deadlock[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3644,18 +3644,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.db_tx_rolledback[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -3665,6 +3653,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.db_tx_commited[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.db_tx_rolledback[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3739,7 +3739,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>pgsql.get.pg.stat_replication[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{#MODE}]</key>
+                            <key>pgsql.get.pg.stat_replication[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#MODE}]</key>
                             <delay>10</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -3927,18 +3927,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.write_diff[{#SRCLIENT}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
@@ -3948,6 +3936,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.replay_diff[{#SRCLIENT}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.write_diff[{#SRCLIENT}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -4033,12 +4033,8 @@
                     <value>8388608</value>
                 </macro>
                 <macro>
-                    <macro>{$ZABBIX_SERVER}</macro>
-                    <value>127.0.0.1</value>
-                </macro>
-                <macro>
-                    <macro>{$ZABBIX_TRAPPER_PORT}</macro>
-                    <value>10051</value>
+                    <macro>{$ZABBIX_AGENTD_CONF}</macro>
+                    <value>/etc/zabbix/zabbix_agentd.conf</value>
                 </macro>
             </macros>
             <templates/>
@@ -4167,18 +4163,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C8C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_clean</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>C8C800</color>
@@ -4188,18 +4172,6 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.maxwritten_clean</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>C800C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_checkpoint</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4215,15 +4187,27 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>5</sortorder>
+                    <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>C80000</color>
+                    <color>C800C8</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_alloc</key>
+                        <key>psql.buffers_checkpoint</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C8C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.buffers_clean</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4236,6 +4220,18 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.buffers_backend</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>5</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C80000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.buffers_alloc</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4259,18 +4255,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.checkpoints_timed</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>C80000</color>
@@ -4280,6 +4264,18 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.checkpoints_req</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.checkpoints_timed</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4303,6 +4299,18 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.server_connections</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>C800C8</color>
@@ -4312,6 +4320,18 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.idle_connections</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>0000C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.active_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4336,30 +4356,6 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.idle_tx_connections</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.server_connections</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>0000C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.active_connections</key>
                     </item>
                 </graph_item>
             </graph_items>

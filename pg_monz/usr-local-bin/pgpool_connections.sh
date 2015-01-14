@@ -5,8 +5,7 @@
 APP_NAME="$1"
 PGPOOLSHELL_CONFDIR=$2
 HOST_NAME="$3"
-ZABBIX_SERVER="$4"
-ZABBIX_TRAPPER_PORT="$5"
+ZABBIX_AGENTD_CONF="$4"
 
 source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
@@ -33,7 +32,7 @@ case "$APP_NAME" in
           *)
                  echo "'$APP_NAME' did not match anything." >&2                ;;
 esac
-echo "$sending_data" | zabbix_sender -z $ZABBIX_SERVER -p $ZABBIX_TRAPPER_PORT -T -i - &>/dev/null
+echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
 if [ $? -ne 0 ]; then        
         # zabbix_sender command failed.
         echo 2        

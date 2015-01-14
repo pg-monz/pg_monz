@@ -5,11 +5,10 @@
 APP_NAME="$1"
 PGSHELL_CONFDIR="$2"
 HOST_NAME="$3"
-ZABBIX_SERVER="$4"
-ZABBIX_TRAPPER_PORT="$5"
-DBNAME="$6"
-SCHEMANAME="$7"
-TABLENAME="$8"
+ZABBIX_AGENTD_CONF="$4"
+DBNAME="$5"
+SCHEMANAME="$6"
+TABLENAME="$7"
 
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
@@ -65,7 +64,7 @@ if [ $? -ne 0 ]; then
 	exit
 fi
 
-echo "$sending_data" | zabbix_sender -z $ZABBIX_SERVER -p $ZABBIX_TRAPPER_PORT -T -i - &>/dev/null
+echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
 
 if [ $? -ne 0 ]; then
 	# zabbix_sender command failed.

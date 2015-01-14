@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-13T07:25:15Z</date>
+    <date>2015-01-14T07:43:06Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -381,7 +381,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgpool.get.connections[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT}]</key>
+                    <key>pgpool.get.connections[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>30</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -455,7 +455,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>pgpool.get.status[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_SERVER},{$ZABBIX_TRAPPER_PORT},{#MODE}]</key>
+                            <key>pgpool.get.status[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#MODE}]</key>
                             <delay>30</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -639,6 +639,10 @@
                 <macro>
                     <macro>{$PGPOOLSCRIPT_CONFDIR}</macro>
                     <value>/usr/local/etc</value>
+                </macro>
+                <macro>
+                    <macro>{$ZABBIX_AGENTD_CONF}</macro>
+                    <value>/etc/zabbix/zabbix_agentd.conf</value>
                 </macro>
             </macros>
             <templates/>
