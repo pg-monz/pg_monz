@@ -73,7 +73,7 @@
 
    "Template App PostgreSQL SR Cluster"/ "Template App pgpool-II-watchdog"
    are simply counting 
-            -the number of running processes(sr/pgpool-II),
+            -the number of running service (sr/pgpool-II),
             -the number of primary server (sr),
             -the number of standby server (sr),
             -the number of delegate_ip (pgpool-II),
