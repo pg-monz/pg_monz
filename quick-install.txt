@@ -1,0 +1,91 @@
+* How to install pg_monz v2-dev
+
+1. requirements
+
+- Zabbix server version 2.0+
+- monitored PostgreSQL  9.2+
+- monitored pgpool-II   3.4.0
+- installing zabbix_agentd to PostgreSQL and pgpool-II host.
+- installing zabbix_sender to PostgreSQL and pgpool-II host.
+- ServerActive setting in zabbix_agentd.conf (zabbix_sender read this file)
+- psql command(and serch path setting) on each PostgreSQL/pgpool server
+
+1. Uploading Zabbix template using Zabbix frontend.
+
+  Template_App_PostgreSQL.xml
+  Template_App_PostgreSQL_SR_Cluster.xml
+  Template_App_pgpool-II.xml
+  Template_App_pgpool-II_watchdog.xml
+
+2. Copy usr-local-etc files (pgsql_funcs.conf and pgpool_funcs.conf) to "/usr/local/etc"
+
+   #cp usr-local-etc/* /usr/local/etc
+
+   default variables for pgsql_func.conf
+   ----
+   PGHOST=127.0.0.1
+   PGPORT=5432
+   PGROLE=postgres
+   PGDATABASE=postgres 
+   ----
+
+   default variables for pgpool_func.conf
+   ----
+   PGPOOLHOST=127.0.0.1
+   PGPOOLPORT=9999
+   PGPOOLROLE=postgres
+   PGPOOLDATABASE=postgres
+   PGPOOLCONF=/usr/local/etc/pgpool.conf
+   ----
+
+   (*) the definition of configuration direcoty is in the tempalte macro.
+       {$PGSCRIPT_CONFDIR}
+       {$PGPOOLSCRIPTS_CONFDIR}
+
+3. Copy usr-local-bin files (*.sh) to "/usr/local/bin"
+
+   #cp usr-local-bin/* /usr/local/bin
+
+   (*) the definition of scripts direcroty is in the template macro.
+       {$PGSCRIPTDIR}
+       {$PGPOOLSCRIPTDIR}
+
+4. Define groups using Zabbix frontend.
+
+   Create "PostgreSQL" group and add PostgreSQL host to "PostgreSQL" group.
+   Create "pgpool" group and add pgpool-II host to "pgpool" group.
+
+   Each groups are referenced by Template_App_PostgreSQL_SR_Cluster.xml
+   and Template_App_pgpool-II_watchodg.xml using {$HOST_GROUP} template macro.
+
+5. Check the filepath of zabbix_agentd.conf.
+
+   if your installation of zabbix_agentd.conf is not /etc/zabbix/zabbix_agentd.conf,
+   add {$ZABBIX_AGENTD_CONF} macro to HOST'S MACRO.
+
+   # the definition of zabbix_agentd.conf path is in the template macro.
+     {$ZABBIX_AGENTD_CONF} => /etc/zabbix/zabbix_agentd.conf
+
+6. Link template to host.
+
+   Link "Template App PostgreSQL" to PostgreSQL host.
+   Link "Template App pgpool-II" to pgpool-II host.
+
+   "Template App PostgreSQL SR Cluster"/ "Template App pgpool-II-watchdog"
+   are simply counting 
+            -the number of running processes(sr/pgpool-II),
+            -the number of primary server (sr),
+            -the number of standby server (sr),
+            -the number of delegate_ip (pgpool-II),
+   in same {$HOST_GROUP} using zabbix aggregate key. 
+   you want to monitor the split-brain or the number of primary server,
+   Link the above templates to arbitrary host. 
+   ex) "PostgreSQL Cluster" as a virtual host
+
+
+  
+
+   
+   
+   
+
