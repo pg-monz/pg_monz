@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-13T07:25:51Z</date>
+    <date>2015-01-16T05:55:17Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template App PostgreSQL Cluster</template>
-            <name>Template App PostgreSQL Cluster</name>
+            <template>Template App pgpool-II watchdog</template>
+            <name>Template App pgpool-II watchdog</name>
             <groups>
                 <group>
                     <name>Templates</name>
@@ -18,18 +18,18 @@
             </groups>
             <applications>
                 <application>
-                    <name>pg.cluster.status</name>
+                    <name>pgpool.watchdog</name>
                 </application>
             </applications>
             <items>
                 <item>
-                    <name>Number of primary server</name>
+                    <name>Number of delegate ip</name>
                     <type>8</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},psql.primary_server,last,0]</key>
-                    <delay>10</delay>
+                    <key>grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0]</key>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -59,20 +59,20 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.cluster.status</name>
+                            <name>pgpool.watchdog</name>
                         </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Number of standby server</name>
+                    <name>Number of running pgpool-II server</name>
                     <type>8</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},psql.standby_server,last,0]</key>
-                    <delay>10</delay>
+                    <key>grpsum[{$HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,]</key>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -102,7 +102,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.cluster.status</name>
+                            <name>pgpool.watchdog</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -110,33 +110,38 @@
                 </item>
             </items>
             <discovery_rules/>
-            <macros>
-                <macro>
-                    <macro>{$HOST_GROUP}</macro>
-                    <value>PostgreSQL</value>
-                </macro>
-            </macros>
+            <macros/>
             <templates/>
             <screens/>
         </template>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App PostgreSQL Cluster:grpsum[{$HOST_GROUP},psql.primary_server,last,0].prev(0)}=0</expression>
-            <name>Primary server is down</name>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,].last(0)}=0</expression>
+            <name>All pgpool-II servers are dead on {$HOST_GROUP} group</name>
             <url/>
             <status>0</status>
-            <priority>5</priority>
+            <priority>4</priority>
             <description/>
             <type>0</type>
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL Cluster:grpsum[{$HOST_GROUP},psql.primary_server,last,0].prev(0)}&gt;1</expression>
-            <name>Split-brain is occurring</name>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].last(0)}=0</expression>
+            <name>pgpool-II delegate_ip is not exists on {$HOST_GROUP} group</name>
             <url/>
             <status>0</status>
-            <priority>5</priority>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].count(#2,2,&quot;ge&quot;)}&gt;1</expression>
+            <name>pgpool-II split-brain is occurring on {$HOST_GROUP} group</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
             <description/>
             <type>0</type>
             <dependencies/>
