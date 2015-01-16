@@ -81,11 +81,3 @@
    you want to monitor the split-brain or the number of primary server,
    Link the above templates to arbitrary host. 
    ex) "PostgreSQL Cluster" as a virtual host
-
-
-  
-
-   
-   
-   
-
