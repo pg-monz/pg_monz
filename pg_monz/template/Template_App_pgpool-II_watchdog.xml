@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-16T05:55:17Z</date>
+    <date>2015-01-16T07:27:29Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -110,7 +110,12 @@
                 </item>
             </items>
             <discovery_rules/>
-            <macros/>
+            <macros>
+                <macro>
+                    <macro>{$HOST_GROUP}</macro>
+                    <value>pgpool</value>
+                </macro>
+            </macros>
             <templates/>
             <screens/>
         </template>
