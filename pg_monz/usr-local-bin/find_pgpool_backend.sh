@@ -5,7 +5,7 @@
 
 
 
-PGPOOLSHELL_CONFDIR=$1
+PGPOOLSHELL_CONFDIR="$1"
 source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
 POOL_STATUS="show pool_status"

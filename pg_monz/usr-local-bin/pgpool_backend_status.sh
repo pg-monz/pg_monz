@@ -3,22 +3,18 @@
 # Get list of pgpool-II database backend name which you want to monitor.
 #
 APP_NAME="$1"
-PGPOOLSHELL_CONFDIR=$2
+PGPOOLSHELL_CONFDIR="$2"
 HOST_NAME="$3"
 ZABBIX_AGENTD_CONF="$4"
 
 source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
 BACKENDDB="show pool_nodes"
-POOLSTATUS="show pool_status"
 TIME=` date +%s`
 
 case "$APP_NAME" in
-         pgpool.status)
+         pgpool.nodes)
                  pool_nodes=$(psql -A --field-separator=',' -t -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${BACKENDDB}")
-                 pool_status=$(psql -A --field-separator=',' -t -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${POOLSTATUS}")
-                 delegate_ip=`echo "$pool_status" | grep delegate_IP | awk -F, '{print $2}'`
-                 num_ip=`ip addr show | grep $delegate_ip | wc -l`
                  if [ $? -ne 0 ]; then
                     echo 3        exit
                  fi
@@ -31,11 +27,10 @@ case "$APP_NAME" in
                                   BACKENDSTATE=`echo $backendrecord | awk -F, '{print $4}'`
                                   BACKENDWEIGHT=`echo $backendrecord | awk -F, '{print $5}'`
                                   BACKENDROLE=`echo $backendrecord | awk -F, '{print $6}'`
-                                  echo -e "$HOST_NAME pgpool.backend.status[${BACKEND}] $TIME $BACKENDSTATE"
-                                  echo -e "$HOST_NAME pgpool.backend.weight[${BACKEND}] $TIME $BACKENDWEIGHT"
-                                  echo -e "$HOST_NAME pgpool.backend.role[${BACKEND}] $TIME $BACKENDROLE"
+                                  echo -e "\"$HOST_NAME\" pgpool.backend.status[${BACKEND}] $TIME $BACKENDSTATE"
+                                  echo -e "\"$HOST_NAME\" pgpool.backend.weight[${BACKEND}] $TIME $BACKENDWEIGHT"
+                                  echo -e "\"$HOST_NAME\" pgpool.backend.role[${BACKEND}] $TIME $BACKENDROLE"
                                done
-                                  echo -e "$HOST_NAME pgpool.have_delegate_ip $TIME $num_ip"                          
                                ) 
           ;;
           *)

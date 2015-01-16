@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-14T09:33:47Z</date>
+    <date>2015-01-16T05:52:39Z</date>
     <groups>
-        <group>
-            <name>Discovered hosts</name>
-        </group>
         <group>
             <name>Templates</name>
         </group>
@@ -750,7 +747,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>proc.num[postgres,,,]</key>
-                    <delay>60</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>1</status>
@@ -793,10 +790,10 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>proc.num[postgres,,,wal receiver]</key>
-                    <delay>60</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -836,10 +833,10 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>proc.num[postgres,,,wal sender]</key>
-                    <delay>60</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -879,10 +876,10 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>pgsql.get.pg.bgwriter[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>10</delay>
+                    <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -922,7 +919,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>pgsql.get.pg.connections[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>10</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -965,7 +962,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>pgsql.get.pg.slow_query[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{$PGSLOWQUERY_THRESHOLD}]</key>
-                    <delay>30</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -1008,10 +1005,10 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>pgsql.get.pg.sr.status[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>10</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -1051,7 +1048,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
-                    <delay>60</delay>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -1089,12 +1086,12 @@
                 </item>
                 <item>
                     <name>Primary Server</name>
-                    <type>2</type>
+                    <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>psql.primary_server</key>
-                    <delay>0</delay>
+                    <key>psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -1124,7 +1121,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.sr.status</name>
+                            <name>pg.status</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1261,12 +1258,12 @@
                 </item>
                 <item>
                     <name>Standby Server</name>
-                    <type>2</type>
+                    <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>psql.standby_server</key>
-                    <delay>0</delay>
+                    <key>psql.standby_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
+                    <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
@@ -1296,7 +1293,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.sr.status</name>
+                            <name>pg.status</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1396,7 +1393,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>db_table.list.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
-                    <delay>10</delay>
+                    <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -2114,7 +2111,7 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>pgsql.get.pg.stat_table[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                            <delay>30</delay>
+                            <delay>3600</delay>
                             <history>90</history>
                             <trends>365</trends>
                             <status>1</status>
@@ -2564,7 +2561,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>db.list.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
-                    <delay>10</delay>
+                    <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -2981,7 +2978,7 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>pgsql.get.pg.size[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME}]</key>
-                            <delay>10</delay>
+                            <delay>3600</delay>
                             <history>90</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -3024,10 +3021,10 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>pgsql.get.pg.stat_database[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#DBNAME}]</key>
-                            <delay>10</delay>
+                            <delay>3600</delay>
                             <history>90</history>
                             <trends>365</trends>
-                            <status>0</status>
+                            <status>1</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
@@ -3451,7 +3448,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{Template App PostgreSQL:psql.cachehit_ratio[{#DBNAME}].avg(300)}&lt;{$PGCACHEHIT_THRESHOLD}</expression>
-                            <name>[{#DBNAME}] Cache hit ratio is too low</name>
+                            <name>[{#DBNAME}] Cache hit ratio is too low on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -3460,7 +3457,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App PostgreSQL:psql.db_size[{#DBNAME}].last(0)}&gt;{$PGDBSIZE_THRESHOLD}</expression>
-                            <name>[{#DBNAME}] DB Size is too large</name>
+                            <name>[{#DBNAME}] DB Size is too large on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -3469,7 +3466,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App PostgreSQL:psql.db_deadlocks[{#DBNAME}].last(0)}&gt;{$PGDEADLOCK_THRESHOLD}</expression>
-                            <name>[{#DBNAME}] Deadlocks occurred too frequently</name>
+                            <name>[{#DBNAME}] Deadlocks occurred too frequently on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -3478,7 +3475,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App PostgreSQL:psql.db_temp_bytes[{#DBNAME}].last(0)}&gt;{$PGTEMPBYTES_THRESHOLD}</expression>
-                            <name>[{#DBNAME}] Too many temp bytes</name>
+                            <name>[{#DBNAME}] Too many temp bytes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -3840,7 +3837,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>sr.client_ip.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{$CLUSTER_NAME}]</key>
-                    <delay>10</delay>
+                    <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -3870,10 +3867,10 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>pgsql.get.pg.stat_replication[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#MODE}]</key>
-                            <delay>10</delay>
+                            <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
-                            <status>0</status>
+                            <status>1</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
@@ -4083,30 +4080,7 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
-                    <host_prototypes>
-                        <host_prototype>
-                            <host>PostgreSQL {#MODE} replication cluster</host>
-                            <name>PostgreSQL {#MODE} replication cluster</name>
-                            <status>0</status>
-                            <group_links>
-                                <group_link>
-                                    <group>
-                                        <name>Discovered hosts</name>
-                                    </group>
-                                </group_link>
-                            </group_links>
-                            <group_prototypes>
-                                <group_prototype>
-                                    <name>{#HOST_GROUP}</name>
-                                </group_prototype>
-                            </group_prototypes>
-                            <templates>
-                                <template>
-                                    <name>Template App PostgreSQL Cluster</name>
-                                </template>
-                            </templates>
-                        </host_prototype>
-                    </host_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros>
@@ -4223,8 +4197,18 @@
     </templates>
     <triggers>
         <trigger>
+            <expression>{Template App PostgreSQL:psql.block_query.last(0)}=0</expression>
+            <name>blocking write query because sync standby is not exists on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
             <expression>{Template App PostgreSQL:psql.checkpoints_req.last(0)}&gt;{$PGCHECKPOINTS_THRESHOLD}</expression>
-            <name>Checkpoints are occurring too frequently</name>
+            <name>Checkpoints are occurring too frequently on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -4234,7 +4218,7 @@
         </trigger>
         <trigger>
             <expression>{Template App PostgreSQL:psql.server_connections.last(0)}&gt;{$PGCONNECTIONS_THRESHOLD}</expression>
-            <name>Many connections are forked.</name>
+            <name>Many connections are forked on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -4244,7 +4228,7 @@
         </trigger>
         <trigger>
             <expression>{Template App PostgreSQL:proc.num[postgres,,,].last(0)}=0</expression>
-            <name>PostgreSQL process is not running.</name>
+            <name>PostgreSQL process is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -4253,18 +4237,28 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL:psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}].last(0)}#0</expression>
-            <name>PostgreSQL service is not running.</name>
+            <expression>{Template App PostgreSQL:psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}].last(0)}#1</expression>
+            <name>PostgreSQL service is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template App PostgreSQL:psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}].last(#2)}=0 &amp; {Template App PostgreSQL:psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}].last(#1)}=1</expression>
+            <name>promote to the primary server on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>1</priority>
             <description/>
             <type>0</type>
             <dependencies/>
         </trigger>
         <trigger>
             <expression>{Template App PostgreSQL:psql.slow_queries.last(0)}&gt;{$PGSLOWQUERY_THRESHOLD}</expression>
-            <name>Too many slow queries</name>
+            <name>Too many slow queries on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>1</priority>

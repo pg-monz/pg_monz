@@ -3,7 +3,7 @@
 # Get list of pgpool-II database backend name which you want to monitor.
 #
 APP_NAME="$1"
-PGPOOLSHELL_CONFDIR=$2
+PGPOOLSHELL_CONFDIR="$2"
 HOST_NAME="$3"
 ZABBIX_AGENTD_CONF="$4"
 
@@ -23,10 +23,10 @@ case "$APP_NAME" in
                  backend_used=`echo "$pool_connections" | awk -F, '$11 !~ /^0$/ {print $11}' | wc -l`
                  frontend_total=`echo "$pool_connections" | awk -F, '{print $1}' | uniq |wc -l`
                  sending_data=$(
-                                 echo -e $HOST_NAME pgpool.frontend.used $TIME $frontend_used
-                                 echo -e $HOST_NAME pgpool.frontend.max $TIME $frontend_total
-                                 echo -e $HOST_NAME pgpool.frontend.empty $TIME $(($frontend_total - $frontend_used))
-                                 echo -e $HOST_NAME pgpool.backend.used $TIME $backend_used
+                                 echo -e \"$HOST_NAME\" pgpool.frontend.used $TIME $frontend_used
+                                 echo -e \"$HOST_NAME\" pgpool.frontend.max $TIME $frontend_total
+                                 echo -e \"$HOST_NAME\" pgpool.frontend.empty $TIME $(($frontend_total - $frontend_used))
+                                 echo -e \"$HOST_NAME\" pgpool.backend.used $TIME $backend_used
                                 ) 
           ;;
           *)

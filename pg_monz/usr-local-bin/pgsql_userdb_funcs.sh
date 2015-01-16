@@ -19,9 +19,9 @@ TIMESTAMP_QUERY='extract(epoch from now())::int'
 case "$APP_NAME" in
 	pg.size)
 		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $DBNAME -c  \
-			"select '$HOST_NAME', 'psql.db_size[$DBNAME]', $TIMESTAMP_QUERY, (select pg_database_size('$DBNAME')) \
+			"select '\"$HOST_NAME\"', 'psql.db_size[$DBNAME]', $TIMESTAMP_QUERY, (select pg_database_size('$DBNAME')) \
                         union all \
-			select '$HOST_NAME', 'psql.db_garbage_ratio[$DBNAME]', $TIMESTAMP_QUERY, ( \
+			select '\"$HOST_NAME\"', 'psql.db_garbage_ratio[$DBNAME]', $TIMESTAMP_QUERY, ( \
                               SELECT round(100*sum( \
                                                CASE (a.n_live_tup+a.n_dead_tup) WHEN 0 THEN 0 \
                                                ELSE c.relpages*(a.n_dead_tup/(a.n_live_tup+a.n_dead_tup)::numeric) \
