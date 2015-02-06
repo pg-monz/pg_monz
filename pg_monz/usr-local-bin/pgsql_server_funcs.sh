@@ -70,11 +70,10 @@ fi
 
 echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
 
-if [ $? -ne 0 ]; then
-	# zabbix_sender command failed.
-	echo 2
-	exit
+result=$(echo "$sending_data" | zabbix_sender -v -T -z localhost -i - 2>&1)
+response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
+if [ -n "$response" ]; then
+	echo "$response"
+else
+	echo "$result"
 fi
-
-# pgsql_funcs.sh was succeeded.
-echo 1

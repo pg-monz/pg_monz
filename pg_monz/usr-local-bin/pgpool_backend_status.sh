@@ -18,7 +18,7 @@ case "$APP_NAME" in
                  if [ $? -ne 0 ]; then
                     echo 3        exit
                  fi
-     
+
                  sending_data=$(for backendrecord in $(echo $pool_nodes); do
                                   BACKENDID=`echo $backendrecord | awk -F, '{print $1}'`
                                   BACKENDNAME=`echo $backendrecord | awk -F, '{print $2}'`
@@ -31,17 +31,16 @@ case "$APP_NAME" in
                                   echo -e "\"$HOST_NAME\" pgpool.backend.weight[${BACKEND}] $TIME $BACKENDWEIGHT"
                                   echo -e "\"$HOST_NAME\" pgpool.backend.role[${BACKEND}] $TIME $BACKENDROLE"
                                done
-                               ) 
+                               )
           ;;
           *)
                  echo "'$APP_NAME' did not match anything." >&2                ;;
 esac
 
-echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
-if [ $? -ne 0 ]; then        
-        # zabbix_sender command failed.
-        echo 2        
-        exit
+result=$(echo "$sending_data" | zabbix_sender -v -T -z localhost -i - 2>&1)
+response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
+if [ -n "$response" ]; then
+	echo "$response"
+else
+	echo "$result"
 fi
-
-echo 1                                                                                                     

@@ -37,17 +37,16 @@ case "$APP_NAME" in
                                  echo -e \"$HOST_NAME\" pgpool.cache.used_cache_entries_size $TIME $used_cache_entries_size
                                  echo -e \"$HOST_NAME\" pgpool.cache.free_cache_entries_size $TIME $free_cache_entries_size
                                  echo -e \"$HOST_NAME\" pgpool.cache.fragment_cache_entries_size $TIME $fragment_cache_entries_size
-                                ) 
+                                )
           ;;
           *)
                  echo "'$APP_NAME' did not match anything." >&2                ;;
 esac
 
-echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
-if [ $? -ne 0 ]; then        
-        # zabbix_sender command failed.
-        echo 2        
-        exit
+result=$(echo "$sending_data" | zabbix_sender -v -T -z localhost -i - 2>&1)
+response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
+if [ -n "$response" ]; then
+	echo "$response"
+else
+	echo "$result"
 fi
-
-echo 1                                                                                                     
