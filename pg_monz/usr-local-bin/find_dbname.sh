@@ -9,11 +9,20 @@
 # GETDB="select datname from pg_database where datname in ('foo','bar');"
 
 PGSHELL_CONFDIR="$1"
-source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 GETDB="select datname from pg_database where datistemplate = 'f';"
 
-for dbname in $(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE  -t -c "${GETDB}"); do
-    dblist="$dblist,"'{"{#DBNAME}":"'$dbname'"}'
+# Load the pgsql connection option parameters.
+source $PGSHELL_CONFDIR/pgsql_funcs.conf
+
+result=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE -t -c "${GETDB}" 2>&1)
+if [ $? -ne 0 ]; then
+	echo "$result"
+	exit
+fi
+
+IFS=$'\n'
+for dbname in $result; do
+    dblist="$dblist,"'{"{#DBNAME}":"'${dbname# }'"}'
 done
 echo '{"data":['${dblist#,}' ]}'

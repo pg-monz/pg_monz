@@ -1,9 +1,7 @@
 #!/bin/bash
-#===============================================================================
-#  GLOBAL DECLARATIONS
-#===============================================================================
 
 PGSHELL_CONFDIR="$1"
+
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgpool_funcs.conf
 
@@ -17,10 +15,7 @@ if [ ! -e "$PGPOOLCONF" ]; then
   exit
 fi
 
-#===============================================================================
-#  MAIN SCRIPT
-#===========================================================================
-delegate_ip=`cat $PGPOOLCONF | grep delegate_IP | awk -F\' '{print $2}'` 2> /dev/null
+delegate_ip=`cat $PGPOOLCONF | grep delegate_IP | awk -F\' '{print $2}'` 2>/dev/null
 
 if [ ! -n "$delegate_ip" ]; then
   echo  0
