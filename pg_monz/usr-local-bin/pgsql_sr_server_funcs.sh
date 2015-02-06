@@ -38,7 +38,8 @@ case "$APP_NAME" in
 					)
 		;;
 	*)
-		echo "'$APP_NAME' did not match anything." >&2
+		echo "'$APP_NAME' did not match anything."
+		exit
 		;;
 esac
 
