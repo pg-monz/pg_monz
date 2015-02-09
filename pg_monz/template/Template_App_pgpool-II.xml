@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-16T05:54:40Z</date>
+    <date>2015-02-09T21:20:30Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -18,9 +18,6 @@
             </groups>
             <applications>
                 <application>
-                    <name>pgpool.nodes</name>
-                </application>
-                <application>
                     <name>pgpool.cache</name>
                 </application>
                 <application>
@@ -31,6 +28,9 @@
                 </application>
                 <application>
                     <name>pgpool.log</name>
+                </application>
+                <application>
+                    <name>pgpool.nodes</name>
                 </application>
                 <application>
                     <name>pgpool.status</name>
@@ -679,7 +679,9 @@
                             <name>pgpool.status</name>
                         </application>
                     </applications>
-                    <valuemap/>
+                    <valuemap>
+                        <name>Service state</name>
+                    </valuemap>
                     <logtimefmt/>
                 </item>
                 <item>
@@ -722,7 +724,9 @@
                             <name>pgpool.status</name>
                         </application>
                     </applications>
-                    <valuemap/>
+                    <valuemap>
+                        <name>Service state</name>
+                    </valuemap>
                     <logtimefmt/>
                 </item>
                 <item>
@@ -1137,6 +1141,18 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App pgpool-II</host>
+                        <key>pgpool.frontend.max</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>0000C8</color>
@@ -1158,18 +1174,6 @@
                     <item>
                         <host>Template App pgpool-II</host>
                         <key>pgpool.frontend.empty</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App pgpool-II</host>
-                        <key>pgpool.frontend.max</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -1205,18 +1209,6 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>C800C8</color>
-                    <yaxisside>1</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App pgpool-II</host>
-                        <key>pgpool.cache.cache_hit_ratio</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>C80000</color>
@@ -1238,6 +1230,18 @@
                     <item>
                         <host>Template App pgpool-II</host>
                         <key>pgpool.cache.free_cache_entries_size</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C800C8</color>
+                    <yaxisside>1</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App pgpool-II</host>
+                        <key>pgpool.cache.cache_hit_ratio</key>
                     </item>
                 </graph_item>
             </graph_items>
