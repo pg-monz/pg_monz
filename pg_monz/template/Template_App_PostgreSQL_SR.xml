@@ -207,7 +207,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>sr.client_ip.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{$CLUSTER_NAME}]</key>
+                    <key>sr.client_ip.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
