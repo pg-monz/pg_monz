@@ -1,9 +1,8 @@
 #!/bin/bash
 
 PGSHELL_CONFDIR="$1"
-HOST_GROUP="$2"
 
-GETTABLE="select row_to_json(t) from (select 'streaming' as \"{#MODE}\", client_addr as \"{#SRCLIENT}\", '$HOST_GROUP' as \"{#HOST_GROUP}\" from pg_stat_replication) as t"
+GETTABLE="select row_to_json(t) from (select 'streaming' as \"{#MODE}\", client_addr as \"{#SRCLIENT}\" from pg_stat_replication) as t"
 
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
