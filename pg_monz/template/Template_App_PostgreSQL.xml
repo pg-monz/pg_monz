@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-16T05:52:39Z</date>
+    <date>2015-02-06T08:58:02Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -36,16 +36,10 @@
                     <name>pg.slow_query</name>
                 </application>
                 <application>
-                    <name>pg.sr.status</name>
-                </application>
-                <application>
                     <name>pg.status</name>
                 </application>
                 <application>
                     <name>pg.stat_database</name>
-                </application>
-                <application>
-                    <name>pg.stat_replication</name>
                 </application>
                 <application>
                     <name>pg.stat_table</name>
@@ -698,49 +692,6 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Noｔ block write query</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>psql.block_query</key>
-                    <delay>0</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>pg.sr.status</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
                     <name>Number of postgres process</name>
                     <type>0</type>
                     <snmp_community/>
@@ -778,92 +729,6 @@
                     <applications>
                         <application>
                             <name>pg.status</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
-                    <name>Number of wal receiver process</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>proc.num[postgres,,,wal receiver]</key>
-                    <delay>300</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>1</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>pg.sr.status</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
-                    <name>Number of wal sender process</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>proc.num[postgres,,,wal sender]</key>
-                    <delay>300</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>1</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>pg.sr.status</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -966,49 +831,6 @@
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>pg.get</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
-                    <name>pgsql.get.pg.sr.status</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>pgsql.get.pg.sr.status[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>300</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -2255,15 +2077,15 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
+                                    <sortorder>3</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>C8C800</color>
+                                    <color>00C8C8</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.table_seq_tup_read[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                        <key>psql.table_n_tup_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2291,18 +2113,6 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>0000C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>5</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
@@ -2315,15 +2125,27 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>3</sortorder>
+                                    <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>00C8C8</color>
+                                    <color>C8C800</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.table_n_tup_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                        <key>psql.table_seq_tup_read[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2347,15 +2169,15 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
+                                    <sortorder>3</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
+                                    <color>C800C8</color>
+                                    <yaxisside>1</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.table_n_dead_tup[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2371,6 +2193,18 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_n_dead_tup[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -2380,18 +2214,6 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_n_live_tup[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>1</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2459,18 +2281,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_total_size[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -2480,6 +2290,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_garbage_ratio[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_total_size[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2502,6 +2324,18 @@
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_analyze_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
                                 <graph_item>
                                     <sortorder>2</sortorder>
                                     <drawtype>0</drawtype>
@@ -2536,18 +2370,6 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_analyze_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2622,49 +2444,6 @@
                             <applications>
                                 <application>
                                     <name>pg.stat_database</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#DBNAME}] Bufferpin conflicts</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.confl_bufferpin[{#DBNAME}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.sr.status</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -2800,49 +2579,6 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] Deadlock conflicts</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.confl_deadlock[{#DBNAME}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.sr.status</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
                             <name>[{#DBNAME}] Deadlocks</name>
                             <type>2</type>
                             <snmp_community/>
@@ -2923,49 +2659,6 @@
                             <applications>
                                 <application>
                                     <name>pg.size</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#DBNAME}] Lock conflicts</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.confl_lock[{#DBNAME}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.sr.status</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -3095,92 +2788,6 @@
                             <applications>
                                 <application>
                                     <name>pg.stat_database</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#DBNAME}] Snapshot conflicts</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.confl_snapshot[{#DBNAME}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.sr.status</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#DBNAME}] Tablsespace conflicts</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.confl_tablespace[{#DBNAME}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.sr.status</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -3503,18 +3110,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.db_fetched[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>4</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C8C8</color>
@@ -3527,15 +3122,15 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
+                                    <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>C800C8</color>
+                                    <color>00C800</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.db_returned[{#DBNAME}]</key>
+                                        <key>psql.db_fetched[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -3560,6 +3155,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.db_inserted[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.db_returned[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3641,86 +3248,6 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
-                            <name>[{#DBNAME}] DB Streaming Replication Conflicts</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>4</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_deadlock[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>2</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_snapshot[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C8C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_tablespace[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_bufferpin[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>0000C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.confl_lock[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
                             <name>[{#DBNAME}] Deadlocks</name>
                             <width>900</width>
                             <height>200</height>
@@ -3771,18 +3298,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.db_tx_commited[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
@@ -3792,6 +3307,18 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.db_tx_rolledback[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.db_tx_commited[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3824,257 +3351,6 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.db_temp_bytes[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                    </graph_prototypes>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>Streaming Replication Discavery</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>sr.client_ip.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{$CLUSTER_NAME}]</key>
-                    <delay>3600</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>:</filter>
-                    <lifetime>3650</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>[{#MODE}] pgsql.get.pg.stat_replication</name>
-                            <type>0</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>pgsql.get.pg.stat_replication[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{#MODE}]</key>
-                            <delay>300</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>1</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.get</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#SRCLIENT}] replaying delay (bytes)</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.replay_diff[{#SRCLIENT}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>bytes</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.stat_replication</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#SRCLIENT}] sync_priority</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.sync_priority[{#SRCLIENT}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.stat_replication</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>[{#SRCLIENT}] writing delay (bytes)</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>psql.write_diff[{#SRCLIENT}]</key>
-                            <delay>0</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>bytes</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>pg.stat_replication</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes/>
-                    <graph_prototypes>
-                        <graph_prototype>
-                            <name>[{#SRCLIENT}] streaming replication delay (bytes)</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.replay_diff[{#SRCLIENT}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.write_diff[{#SRCLIENT}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -4197,16 +3473,6 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App PostgreSQL:psql.block_query.last(0)}=0</expression>
-            <name>blocking write query because sync standby is not exists on {HOST.NAME}</name>
-            <url/>
-            <status>0</status>
-            <priority>4</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
             <expression>{Template App PostgreSQL:psql.checkpoints_req.last(0)}&gt;{$PGCHECKPOINTS_THRESHOLD}</expression>
             <name>Checkpoints are occurring too frequently on {HOST.NAME}</name>
             <url/>
@@ -4299,18 +3565,6 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>0000C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_backend_fsync</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>C800C8</color>
@@ -4323,18 +3577,6 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C8C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_clean</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>3</sortorder>
                     <drawtype>0</drawtype>
                     <color>00C800</color>
@@ -4344,6 +3586,30 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.buffers_backend</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>0000C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.buffers_backend_fsync</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C8C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.buffers_clean</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4379,18 +3645,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>C80000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.checkpoints_req</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>00C800</color>
@@ -4400,6 +3654,18 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.checkpoints_timed</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C80000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.checkpoints_req</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4423,15 +3689,27 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
-                    <color>00C800</color>
+                    <color>0000C8</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.server_connections</key>
+                        <key>psql.active_connections</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C8C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.idle_tx_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4447,15 +3725,15 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>0000C8</color>
+                    <color>00C800</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.active_connections</key>
+                        <key>psql.server_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4468,18 +3746,6 @@
                     <item>
                         <host>Template App PostgreSQL</host>
                         <key>psql.locks_waiting</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C8C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.idle_tx_connections</key>
                     </item>
                 </graph_item>
             </graph_items>
