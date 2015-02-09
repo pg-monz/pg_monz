@@ -48,7 +48,7 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.checkpoints_timed', $TIMESTAMP_QUERY, (select checkpoints_timed from pg_stat_bgwriter) \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.maxwritten_clean', $TIMESTAMP_QUERY, (select maxwritten_clean from pg_stat_bgwriter)" 2&>1
+						select '\"$HOST_NAME\"', 'psql.maxwritten_clean', $TIMESTAMP_QUERY, (select maxwritten_clean from pg_stat_bgwriter)" 2>&1
 					)
 		;;
 	pg.slow_query)
@@ -71,9 +71,7 @@ if [ $? -ne 0 ]; then
 	exit
 fi
 
-echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -T -i - &>/dev/null
-
-result=$(echo "$sending_data" | zabbix_sender -v -T -z localhost -i - 2>&1)
+result=$(echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -z localhost -i - 2>&1)
 response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
 if [ -n "$response" ]; then
 	echo "$response"
