@@ -15,7 +15,7 @@ source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
 case "$APP_NAME" in
 	pgpool.connections)
-		pool_connections=$(psql -A --field-separator=',' -t -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${POOL}" 2>&1)
+		pool_connections=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${POOL}" 2>&1)
 
 		if [ $? -ne 0 ]; then
 			echo "$pool_connections"
