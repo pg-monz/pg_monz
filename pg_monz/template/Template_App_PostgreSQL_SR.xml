@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-02-06T08:58:44Z</date>
+    <date>2015-02-10T07:37:50Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -207,7 +207,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>sr.client_ip.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
+                    <key>sr.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -274,6 +274,40 @@
                             <valuemap/>
                             <logtimefmt/>
                         </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes/>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Streaming Replication Status Discavery</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>sr.status.discovery[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>:</filter>
+                    <lifetime>3650</lifetime>
+                    <description/>
+                    <item_prototypes>
                         <item_prototype>
                             <name>[{#SRCLIENT}] replaying delay (bytes)</name>
                             <type>2</type>
@@ -425,18 +459,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL SR</host>
-                                        <key>psql.replay_diff[{#SRCLIENT}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -446,6 +468,18 @@
                                     <item>
                                         <host>Template App PostgreSQL SR</host>
                                         <key>psql.write_diff[{#SRCLIENT}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL SR</host>
+                                        <key>psql.replay_diff[{#SRCLIENT}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>

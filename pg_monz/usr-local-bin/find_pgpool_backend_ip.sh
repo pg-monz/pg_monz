@@ -28,4 +28,18 @@ else
 	fi
 fi
 
-echo "{\"data\":[{\"{#MODE}\":\"$MODE\"} ]}"
+BACKENDDB="show pool_nodes"
+result=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${BACKENDDB}" 2>&1)
+if [ $? -ne 0 ]; then
+	echo "$result"
+	exit
+fi
+
+for backendrecord in $result; do
+	BACKENDID=`echo $backendrecord | awk -F, '{print $1}'`
+	BACKENDNAME=`echo $backendrecord | awk -F, '{print $2}'`
+	BACKENDPORT=`echo $backendrecord | awk -F, '{print $3}'`
+	BACKEND=ID_${BACKENDID}_${BACKENDNAME}_${BACKENDPORT}
+	backendlist="$backendlist,"'{"{#BACKEND}":"'$BACKEND'"}'
+done
+echo '{"data":['${backendlist#,}' ]}'

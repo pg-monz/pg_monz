@@ -2,7 +2,7 @@
 
 PGSHELL_CONFDIR="$1"
 
-GETTABLE="select row_to_json(t) from (select 'streaming' as \"{#MODE}\", client_addr as \"{#SRCLIENT}\" from pg_stat_replication) as t"
+GETTABLE="select row_to_json(t) from (select client_addr as \"{#SRCLIENT}\" from pg_stat_replication) as t"
 
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
