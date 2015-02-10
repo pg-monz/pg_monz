@@ -13,6 +13,7 @@
 1. Uploading Zabbix template using Zabbix frontend.
 
   Template_App_PostgreSQL.xml
+  Template_App_PostgreSQL_SR.xml
   Template_App_PostgreSQL_SR_Cluster.xml
   Template_App_pgpool-II.xml
   Template_App_pgpool-II_watchdog.xml
@@ -26,7 +27,7 @@
    PGHOST=127.0.0.1
    PGPORT=5432
    PGROLE=postgres
-   PGDATABASE=postgres 
+   PGDATABASE=postgres
    ----
 
    default variables for pgpool_func.conf
@@ -56,7 +57,7 @@
    Create "pgpool" group and add pgpool-II host to "pgpool" group.
 
    Each groups are referenced by Template_App_PostgreSQL_SR_Cluster.xml
-   and Template_App_pgpool-II_watchodg.xml using {$HOST_GROUP} template macro.
+   and Template_App_pgpool-II_watchdog.xml using {$HOST_GROUP} template macro.
 
 5. Check the filepath of zabbix_agentd.conf.
 
@@ -68,16 +69,16 @@
 
 6. Link template to host.
 
-   Link "Template App PostgreSQL" to PostgreSQL host.
+   Link "Template App PostgreSQL SR" to PostgreSQL host.
    Link "Template App pgpool-II" to pgpool-II host.
 
    "Template App PostgreSQL SR Cluster"/ "Template App pgpool-II-watchdog"
-   are simply counting 
+   are simply counting
             -the number of running service (sr/pgpool-II),
             -the number of primary server (sr),
             -the number of standby server (sr),
             -the number of delegate_ip (pgpool-II),
-   in same {$HOST_GROUP} using zabbix aggregate key. 
+   in same {$HOST_GROUP} using zabbix aggregate key.
    you want to monitor the split-brain or the number of primary server,
-   Link the above templates to arbitrary host. 
+   Link the above templates to arbitrary host.
    ex) "PostgreSQL Cluster" as a virtual host
