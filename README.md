@@ -19,7 +19,7 @@ Primary / Standby サーバの死活監視や、レプリケーション先へ�
 
 
 ### pgpool-II の監視に対応
-PostgreSQL 専用ミドルウェアである [pgpool-II](http://www.pgpool.net/mediawiki/jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8) の監視がサポートされました。  
+PostgreSQL 専用ミドルウェアである pgpool-II の監視がサポートされました。  
 pgpool-II の主な機能である、コネクションプーリング・レプリケーション・インメモリクエリキャッシュ・負荷分散・PostgreSQL の自動フェイルオーバに対応した各種監視項目およびトリガーが設定されています。
 
 pgpool-II に関する詳細な情報は、[pgpool-II ユーザマニュアル](http://www.pgpool.net/mediawiki/jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8)、[Pgpool Wiki](http://www.pgpool.net/mediawiki/jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8) を参照してください。
