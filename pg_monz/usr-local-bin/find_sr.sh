@@ -15,4 +15,6 @@ fi
 
 if [ $result -ge 1 ]; then
 	echo '{"data":[{"{#MODE}":"streaming"} ]}'
+else
+	echo '{"data":[ ]}'
 fi
