@@ -1,6 +1,6 @@
 pg_monz 2.0 **Beta Version**
 ============================
-pg_monz (PostgreSQL monitoring template for Zabbix) は、Zabbix で PostgreSQL の各種監視を行うためのテンプレートで、  
+pg_monz (PostgreSQL monitoring template for Zabbix) は、Zabbix で PostgreSQL の各種監視を行うためのテンプレートで、
 PostgreSQL の死活監視、リソース監視、性能監視などが行えます。  
 また、Zabbix のディスカバリ機能を利用し、データベースやテーブルを自動検出し、自動で監視を開始することができます。
 
@@ -25,7 +25,7 @@ pgpool-II の主な機能である、コネクションプーリング・レプ�
 pgpool-II に関する詳細な情報は、[pgpool-II ユーザマニュアル](http://www.pgpool.net/mediawiki/jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8)、[Pgpool Wiki](http://www.pgpool.net/mediawiki/jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8) を参照してください。
 
 
-### PostgresQL + pgpool-II クラスタ構成の監視に対応  
+### PostgresQL + pgpool-II クラスタ構成の監視に対応
 PostgreSQL のストリーミングレプリケーション、または pgpool-II や pgpool-II 自身の冗長化を行う watchdog 機能を利用している複数のサーバを 1 つのクラスタ構成とした監視も可能です。
 Postgres、pgpoo-II プロセスの監視を通して、スプリットブレインの検知や、フェイルオーバを検知するトリガーが設定されています。
 
