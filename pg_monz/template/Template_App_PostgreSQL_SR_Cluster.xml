@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-16T05:53:19Z</date>
+    <date>2015-03-10T07:20:01Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0]</key>
+                    <key>grpsum[{$PG_HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -71,7 +71,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},&quot;psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,]</key>
+                    <key>grpsum[{$PG_HOST_GROUP},&quot;psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -114,7 +114,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},&quot;psql.standby_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0]</key>
+                    <key>grpsum[{$PG_HOST_GROUP},&quot;psql.standby_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -155,7 +155,7 @@
             <discovery_rules/>
             <macros>
                 <macro>
-                    <macro>{$HOST_GROUP}</macro>
+                    <macro>{$PG_HOST_GROUP}</macro>
                     <value>PostgreSQL</value>
                 </macro>
             </macros>
@@ -165,8 +165,8 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$HOST_GROUP},&quot;psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,].last(0)}=0</expression>
-            <name>All PostgreSQL servers are dead on {$HOST_GROUP} group</name>
+            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$PG_HOST_GROUP},&quot;psql.running[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,].last(0)}=0</expression>
+            <name>All PostgreSQL servers are dead on {$PG_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -175,8 +175,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0].last(0)}=0</expression>
-            <name>PostgreSQL primary server is down on {$HOST_GROUP} group</name>
+            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$PG_HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0].last(0)}=0</expression>
+            <name>PostgreSQL primary server is down on {$PG_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -185,8 +185,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0].count(#2,2,&quot;ge&quot;)}&gt;1</expression>
-            <name>PostgreSQL split-brain is occurring on {$HOST_GROUP} group</name>
+            <expression>{Template App PostgreSQL SR Cluster:grpsum[{$PG_HOST_GROUP},&quot;psql.primary_server[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR}]&quot;,last,0].count(#2,2,&quot;ge&quot;)}&gt;1</expression>
+            <name>PostgreSQL split-brain is occurring on {$PG_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>

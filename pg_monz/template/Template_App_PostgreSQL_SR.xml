@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-02-10T07:37:50Z</date>
+    <date>2015-03-10T07:19:44Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -468,6 +468,18 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL SR</host>
+                                        <key>psql.confl_bufferpin[{#DBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
                                     <sortorder>4</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -501,18 +513,6 @@
                                     <item>
                                         <host>Template App PostgreSQL SR</host>
                                         <key>psql.confl_tablespace[{#DBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL SR</host>
-                                        <key>psql.confl_bufferpin[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-01-16T07:27:29Z</date>
+    <date>2015-03-10T07:20:40Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0]</key>
+                    <key>grpsum[{$PGPOOL_HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -71,7 +71,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>grpsum[{$HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,]</key>
+                    <key>grpsum[{$PGPOOL_HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -112,7 +112,7 @@
             <discovery_rules/>
             <macros>
                 <macro>
-                    <macro>{$HOST_GROUP}</macro>
+                    <macro>{$PGPOOL_HOST_GROUP}</macro>
                     <value>pgpool</value>
                 </macro>
             </macros>
@@ -122,8 +122,8 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,].last(0)}=0</expression>
-            <name>All pgpool-II servers are dead on {$HOST_GROUP} group</name>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$PGPOOL_HOST_GROUP},&quot;pgpool.running[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,].last(0)}=0</expression>
+            <name>All pgpool-II servers are dead on {$PGPOOL_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -132,8 +132,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].last(0)}=0</expression>
-            <name>pgpool-II delegate_ip is not exists on {$HOST_GROUP} group</name>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$PGPOOL_HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].last(0)}=0</expression>
+            <name>pgpool-II delegate_ip is not exists on {$PGPOOL_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -142,8 +142,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App pgpool-II watchdog:grpsum[{$HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].count(#2,2,&quot;ge&quot;)}&gt;1</expression>
-            <name>pgpool-II split-brain is occurring on {$HOST_GROUP} group</name>
+            <expression>{Template App pgpool-II watchdog:grpsum[{$PGPOOL_HOST_GROUP},&quot;pgpool.have_delegate_ip[{$PGPOOLSCRIPTDIR},{$PGPOOLSCRIPT_CONFDIR}]&quot;,last,0].count(#2,2,&quot;ge&quot;)}&gt;1</expression>
+            <name>pgpool-II split-brain is occurring on {$PGPOOL_HOST_GROUP} group</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
