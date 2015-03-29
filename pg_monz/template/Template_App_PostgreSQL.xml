@@ -826,7 +826,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.slow_query[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{$PGSLOWQUERY_THRESHOLD}]</key>
+                    <key>pgsql.get.pg.slow_query[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF},{$PGSLOWQUERY_TIME_THRESHOLD}]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3367,10 +3367,6 @@
             </discovery_rules>
             <macros>
                 <macro>
-                    <macro>{$HOST_GROUP}</macro>
-                    <value>PostgreSQL</value>
-                </macro>
-                <macro>
                     <macro>{$PGCACHEHIT_THRESHOLD}</macro>
                     <value>90</value>
                 </macro>
@@ -3385,10 +3381,6 @@
                 <macro>
                     <macro>{$PGDBSIZE_THRESHOLD}</macro>
                     <value>1073741824</value>
-                </macro>
-                <macro>
-                    <macro>{$PGDEADLOCK_THRESHHOLD}</macro>
-                    <value>0</value>
                 </macro>
                 <macro>
                     <macro>{$PGDEADLOCK_THRESHOLD}</macro>
@@ -3407,7 +3399,11 @@
                     <value>/usr/local/etc</value>
                 </macro>
                 <macro>
-                    <macro>{$PGSLOWQUERY_THRESHOLD}</macro>
+                    <macro>{$PGSLOWQUERY_TIME_THRESHOLD}</macro>
+                    <value>10</value>
+                </macro>
+                <macro>
+                    <macro>{$PGSLOWQUERY_COUNT_THRESHOLD}</macro>
                     <value>10</value>
                 </macro>
                 <macro>
@@ -3525,7 +3521,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL:psql.slow_queries.last(0)}&gt;{$PGSLOWQUERY_THRESHOLD}</expression>
+            <expression>{Template App PostgreSQL:psql.slow_queries.last(0)}&gt;{$PGSLOWQUERY_COUNT_THRESHOLD}</expression>
             <name>Too many slow queries on {HOST.NAME}</name>
             <url/>
             <status>0</status>
