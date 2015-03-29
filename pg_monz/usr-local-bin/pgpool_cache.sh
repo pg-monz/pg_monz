@@ -24,7 +24,7 @@ case "$APP_NAME" in
 
 		num_cache_hits=`echo "$pool_cache" | awk -F, '{print $1}'`
 		num_selects=`echo "$pool_cache" | awk -F, '{print $2}'`
-		cache_hit_ratio=`echo "$pool_cache" | awk -F, '{print $3}'`
+		cache_hit_ratio=`echo "$pool_cache" | awk -F, '{print $3 * 100}'`
 		num_hash_entries=`echo "$pool_cache" | awk -F, '{print $4}'`
 		used_hash_entries=`echo "$pool_cache" | awk -F, '{print $5}'`
 		num_cache_entries=`echo "$pool_cache" | awk -F, '{print $6}'`
