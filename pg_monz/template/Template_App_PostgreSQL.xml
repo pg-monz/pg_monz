@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-03-10T07:19:29Z</date>
+    <date>2015-03-30T07:34:35Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -19,9 +19,6 @@
             <applications>
                 <application>
                     <name>pg.bgwriter</name>
-                </application>
-                <application>
-                    <name>pg.transactions</name>
                 </application>
                 <application>
                     <name>pg.get</name>
@@ -44,6 +41,9 @@
                 <application>
                     <name>pg.stat_table</name>
                 </application>
+                <application>
+                    <name>pg.transactions</name>
+                </application>
             </applications>
             <items>
                 <item>
@@ -61,12 +61,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -87,7 +84,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Buffers_alloc</name>
@@ -104,12 +100,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -130,7 +123,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Buffers_backend</name>
@@ -147,12 +139,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -173,7 +162,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Buffers_backend_fsync</name>
@@ -190,12 +178,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -216,7 +201,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Buffers_checkpoint</name>
@@ -233,12 +217,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -259,7 +240,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Buffers_clean</name>
@@ -276,12 +256,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -302,7 +279,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Checkpoint count (by checkpoint_segments)</name>
@@ -319,12 +295,9 @@
                     <allowed_hosts/>
                     <units>cps</units>
                     <delta>2</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -345,7 +318,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Checkpoint count (by checkpoint_timeout)</name>
@@ -362,12 +334,9 @@
                     <allowed_hosts/>
                     <units>cps</units>
                     <delta>2</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -388,7 +357,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Connections</name>
@@ -405,12 +373,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -431,7 +396,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Idle connections</name>
@@ -448,12 +412,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -474,7 +435,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Idle in transaction connections</name>
@@ -491,12 +451,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -517,7 +474,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Lock waiting connections</name>
@@ -534,12 +490,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -560,7 +513,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Log of $1</name>
@@ -577,12 +529,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -603,7 +552,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Max connections</name>
@@ -620,12 +568,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -646,7 +591,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Maxwritten_clean</name>
@@ -663,12 +607,9 @@
                     <allowed_hosts/>
                     <units>buffers/s</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -689,7 +630,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Number of postgres process</name>
@@ -706,12 +646,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -732,7 +669,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>pgsql.get.pg.bgwriter</name>
@@ -749,12 +685,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -775,50 +708,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
-                    <name>pgsql.get.pg.transactions</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>pgsql.get.pg.transactions[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>300</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>pg.get</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>pgsql.get.pg.slow_query</name>
@@ -835,12 +724,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -861,7 +747,45 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>pgsql.get.pg.transactions</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>pgsql.get.pg.transactions[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
+                    <delay>300</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>pg.get</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
                 </item>
                 <item>
                     <name>PostgreSQL service is running</name>
@@ -878,12 +802,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -906,7 +827,6 @@
                     <valuemap>
                         <name>Service state</name>
                     </valuemap>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Primary Server</name>
@@ -923,12 +843,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -951,7 +868,6 @@
                     <valuemap>
                         <name>Service state</name>
                     </valuemap>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Slow DML queries</name>
@@ -968,12 +884,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -994,7 +907,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Slow queries</name>
@@ -1011,12 +923,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -1037,7 +946,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Slow select queries</name>
@@ -1054,12 +962,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -1080,7 +985,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Standby Server</name>
@@ -1097,12 +1001,9 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -1125,7 +1026,6 @@
                     <valuemap>
                         <name>Service state</name>
                     </valuemap>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Total commited transactions</name>
@@ -1142,12 +1042,9 @@
                     <allowed_hosts/>
                     <units>tps</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -1168,7 +1065,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Total rolled back transactions</name>
@@ -1185,12 +1081,9 @@
                     <allowed_hosts/>
                     <units>tps</units>
                     <delta>1</delta>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -1211,7 +1104,6 @@
                         </application>
                     </applications>
                     <valuemap/>
-                    <logtimefmt/>
                 </item>
             </items>
             <discovery_rules>
@@ -1224,12 +1116,9 @@
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -1259,12 +1148,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1285,7 +1171,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) autoanalyze count</name>
@@ -1302,12 +1187,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1328,7 +1210,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) autovacuum count</name>
@@ -1345,12 +1226,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1371,7 +1249,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) Garbage ratio %</name>
@@ -1388,12 +1265,9 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1414,7 +1288,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) heap cache hit ratio %</name>
@@ -1431,12 +1304,9 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1457,7 +1327,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) idx cache hit ratio %</name>
@@ -1474,12 +1343,9 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1500,7 +1366,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of dead tuples</name>
@@ -1517,12 +1382,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1543,7 +1405,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of delete tuples (tuples/s)</name>
@@ -1560,12 +1421,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1586,7 +1444,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of hot update tuples (tuples/s)</name>
@@ -1603,12 +1460,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1629,7 +1483,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of index scan (scans/s)</name>
@@ -1646,12 +1499,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1672,7 +1522,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of index tuples read (tuples/s)</name>
@@ -1689,12 +1538,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1715,7 +1561,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of insert tuples (tuples/s)</name>
@@ -1732,12 +1577,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1758,7 +1600,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of live tuples</name>
@@ -1775,12 +1616,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1801,7 +1639,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of sequencial scan (scans/s)</name>
@@ -1818,12 +1655,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1844,7 +1678,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of sequencial tuples read (tuples/s)</name>
@@ -1861,12 +1694,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1887,7 +1717,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) number of update tuples (tuples/s)</name>
@@ -1904,12 +1733,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1930,7 +1756,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) pgsql.get.pg.stat_table</name>
@@ -1947,12 +1772,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -1973,7 +1795,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) Table total size</name>
@@ -1990,12 +1811,9 @@
                             <allowed_hosts/>
                             <units>B</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2016,7 +1834,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] ({#SCHEMANAME}.{#TABLENAME}) vacuum count</name>
@@ -2033,12 +1850,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2059,7 +1873,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes/>
@@ -2083,18 +1896,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>2</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_n_tup_ins[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>5</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
@@ -2104,30 +1905,6 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_n_tup_del[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>0000C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C8C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_seq_tup_read[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2152,6 +1929,42 @@
                                     <item>
                                         <host>Template App PostgreSQL</host>
                                         <key>psql.table_n_tup_hot_upd[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_seq_tup_read[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_n_tup_ins[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_idx_tup_fetch[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2331,6 +2144,30 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>4</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App PostgreSQL</host>
+                                        <key>psql.table_analyze_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
                                     <sortorder>3</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
@@ -2354,34 +2191,9 @@
                                         <key>psql.table_autovacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
                                     </item>
                                 </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_analyze_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>C800C8</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>4</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template App PostgreSQL</host>
-                                        <key>psql.table_vacuum_count[{#DBNAME},{#SCHEMANAME},{#TABLENAME}]</key>
-                                    </item>
-                                </graph_item>
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
-                    <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>DB Name List</name>
@@ -2392,12 +2204,9 @@
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
-                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -2427,12 +2236,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2453,7 +2259,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Cache hit ratio (%)</name>
@@ -2470,12 +2275,9 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2496,7 +2298,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Commited transactions</name>
@@ -2513,12 +2314,9 @@
                             <allowed_hosts/>
                             <units>tps</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2539,7 +2337,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] DB Size</name>
@@ -2556,12 +2353,9 @@
                             <allowed_hosts/>
                             <units>B</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2582,7 +2376,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Deadlocks</name>
@@ -2599,12 +2392,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2625,7 +2415,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Estimate DB Garbage ratio %</name>
@@ -2642,12 +2431,9 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2668,7 +2454,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] pgsql.get.pg.size</name>
@@ -2685,12 +2470,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2711,7 +2493,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] pgsql.get.pg.stat_database</name>
@@ -2728,12 +2509,9 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2754,7 +2532,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Rolled back transactions</name>
@@ -2771,12 +2548,9 @@
                             <allowed_hosts/>
                             <units>tps</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2797,7 +2571,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Temp bytes</name>
@@ -2814,12 +2587,9 @@
                             <allowed_hosts/>
                             <units>Byte</units>
                             <delta>2</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2840,7 +2610,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Tuples deleted</name>
@@ -2857,12 +2626,9 @@
                             <allowed_hosts/>
                             <units>tup/s</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2883,7 +2649,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Tuples fetched</name>
@@ -2900,12 +2665,9 @@
                             <allowed_hosts/>
                             <units>tup/s</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2926,7 +2688,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Tuples inserted</name>
@@ -2943,12 +2704,9 @@
                             <allowed_hosts/>
                             <units>tup/s</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -2969,7 +2727,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Tuples returned</name>
@@ -2986,12 +2743,9 @@
                             <allowed_hosts/>
                             <units>tup/s</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -3012,7 +2766,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
                             <name>[{#DBNAME}] Tuples updated</name>
@@ -3029,12 +2782,9 @@
                             <allowed_hosts/>
                             <units>tup/s</units>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -3055,7 +2805,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                            <logtimefmt/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
@@ -3116,15 +2865,15 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
+                                    <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>C800C8</color>
+                                    <color>00C800</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.db_returned[{#DBNAME}]</key>
+                                        <key>psql.db_fetched[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -3140,15 +2889,15 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>4</sortorder>
+                                    <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>00C8C8</color>
+                                    <color>C800C8</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.db_updated[{#DBNAME}]</key>
+                                        <key>psql.db_returned[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -3164,15 +2913,15 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
+                                    <sortorder>4</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>00C800</color>
+                                    <color>00C8C8</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
                                         <host>Template App PostgreSQL</host>
-                                        <key>psql.db_fetched[{#DBNAME}]</key>
+                                        <key>psql.db_updated[{#DBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3362,7 +3111,6 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
-                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros>
@@ -3399,11 +3147,11 @@
                     <value>/usr/local/etc</value>
                 </macro>
                 <macro>
-                    <macro>{$PGSLOWQUERY_TIME_THRESHOLD}</macro>
+                    <macro>{$PGSLOWQUERY_COUNT_THRESHOLD}</macro>
                     <value>10</value>
                 </macro>
                 <macro>
-                    <macro>{$PGSLOWQUERY_COUNT_THRESHOLD}</macro>
+                    <macro>{$PGSLOWQUERY_TIME_THRESHOLD}</macro>
                     <value>10</value>
                 </macro>
                 <macro>
@@ -3441,7 +3189,6 @@
                                 <name>Checkpoint count</name>
                                 <host>Template App PostgreSQL</host>
                             </resource>
-                            <application/>
                         </screen_item>
                         <screen_item>
                             <resourcetype>0</resourcetype>
@@ -3462,7 +3209,6 @@
                                 <name>Connection count</name>
                                 <host>Template App PostgreSQL</host>
                             </resource>
-                            <application/>
                         </screen_item>
                     </screen_items>
                 </screen>
@@ -3551,30 +3297,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>C8C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.maxwritten_clean</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_backend</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>C800C8</color>
@@ -3599,6 +3321,18 @@
                     </item>
                 </graph_item>
                 <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>0000C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.buffers_backend_fsync</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>5</sortorder>
                     <drawtype>0</drawtype>
                     <color>C80000</color>
@@ -3611,15 +3345,27 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>4</sortorder>
+                    <sortorder>3</sortorder>
                     <drawtype>0</drawtype>
-                    <color>0000C8</color>
+                    <color>00C800</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.buffers_backend_fsync</key>
+                        <key>psql.buffers_backend</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C8C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.maxwritten_clean</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3699,27 +3445,15 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
-                    <color>00C8C8</color>
+                    <color>0000C8</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.idle_tx_connections</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>C8C800</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template App PostgreSQL</host>
-                        <key>psql.locks_waiting</key>
+                        <key>psql.active_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3735,15 +3469,71 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
-                    <color>0000C8</color>
+                    <color>C8C800</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>Template App PostgreSQL</host>
-                        <key>psql.active_connections</key>
+                        <key>psql.locks_waiting</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C8C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.idle_tx_connections</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>Number of commited/rolled back transactions</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>0</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C80000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.tx_commited</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App PostgreSQL</host>
+                        <key>psql.tx_rolledback</key>
                     </item>
                 </graph_item>
             </graph_items>
