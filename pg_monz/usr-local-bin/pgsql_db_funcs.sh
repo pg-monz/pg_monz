@@ -14,11 +14,7 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 case "$APP_NAME" in
 	pg.stat_database)
 		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
-						"select '\"$HOST_NAME\"', 'psql.tx_commited', $TIMESTAMP_QUERY, (select sum(xact_commit) from pg_stat_database) \
-						union all \
-						select '\"$HOST_NAME\"', 'psql.tx_rolledback', $TIMESTAMP_QUERY, (select sum(xact_rollback) from pg_stat_database) \
-						union all \
-						select '\"$HOST_NAME\"', 'psql.db_connections[$DBNAME]', $TIMESTAMP_QUERY, (select numbackends from pg_stat_database where datname = '$DBNAME') \
+						"select '\"$HOST_NAME\"', 'psql.db_connections[$DBNAME]', $TIMESTAMP_QUERY, (select numbackends from pg_stat_database where datname = '$DBNAME') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.cachehit_ratio[$DBNAME]', $TIMESTAMP_QUERY, (SELECT round(blks_hit*100/(blks_hit+blks_read), 2) AS cache_hit_ratio FROM pg_stat_database WHERE datname = '$DBNAME' and blks_read > 0 union all select 0.00 AS cache_hit_ratio order by cache_hit_ratio desc limit 1) \
 						union all \

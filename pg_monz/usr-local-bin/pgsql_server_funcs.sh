@@ -17,9 +17,13 @@ TIMESTAMP_QUERY='extract(epoch from now())::int'
 #  MAIN SCRIPT
 #===============================================================================
 case "$APP_NAME" in
-	pg.connections)
+	pg.transactions)
 		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c  \
-						"select '\"$HOST_NAME\"', 'psql.active_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active') \
+						"select '\"$HOST_NAME\"', 'psql.tx_commited', $TIMESTAMP_QUERY, (select sum(xact_commit) from pg_stat_database) \
+						union all \
+						select '\"$HOST_NAME\"', 'psql.tx_rolledback', $TIMESTAMP_QUERY, (select sum(xact_rollback) from pg_stat_database) \
+						union all \
+						select '\"$HOST_NAME\"', 'psql.active_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.server_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity) \
 						union all \

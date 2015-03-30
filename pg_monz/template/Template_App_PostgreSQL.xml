@@ -21,7 +21,7 @@
                     <name>pg.bgwriter</name>
                 </application>
                 <application>
-                    <name>pg.connections</name>
+                    <name>pg.transactions</name>
                 </application>
                 <application>
                     <name>pg.get</name>
@@ -83,7 +83,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -427,7 +427,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -470,7 +470,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -513,7 +513,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -556,7 +556,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -642,7 +642,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.connections</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -778,12 +778,12 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>pgsql.get.pg.connections</name>
+                    <name>pgsql.get.pg.transactions</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>pgsql.get.pg.connections[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
+                    <key>pgsql.get.pg.transactions[{$PGSCRIPTDIR},{$PGSCRIPT_CONFDIR},{HOST.HOST},{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1164,7 +1164,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.stat_database</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1207,7 +1207,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>pg.stat_database</name>
+                            <name>pg.transactions</name>
                         </application>
                     </applications>
                     <valuemap/>
