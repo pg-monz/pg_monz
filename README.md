@@ -1,4 +1,4 @@
-pg_monz 2.0 **Beta Version**
+pg_monz 2.0
 ============================
 pg_monz (PostgreSQL monitoring template for Zabbix) は、Zabbix で PostgreSQL の各種監視を行うためのテンプレートで、
 PostgreSQL の死活監視、リソース監視、性能監視などが行えます。  
