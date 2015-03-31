@@ -9,8 +9,6 @@ discovery feature of Zabbix and can automatically start monitoring.
 
 Changes from 1.0
 ----------------
-***NOTE: Current release is a beta version. Please use it only for test purposes.***
-
 The following is a summary of the major changes.
 
 
