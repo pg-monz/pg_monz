@@ -96,7 +96,7 @@ pg_monz version2は各パターン毎に以下のようなアーキテクチャ�
 
 ### PostgreSQLサーバ単体の監視パターン
 
-![process_flow_single]({{ production_url }}/assets/images/pg_monz_process_flow_single.png)
+![process_flow_single]({{ site.production_url }}/assets/images/pg_monz_process_flow_single.png)
 
 * (1) Zabbix agentタイプのアイテム(アイテムキー: psql.get.～のアイテム)により監視データ一括取得の処理が定期的に実行されます。
 * (2) バックエンドではUserParameterの定義内容に従い、情報一括収集用のpg_monzスクリプトが実行されます。
@@ -108,7 +108,7 @@ pg_monz version2は各パターン毎に以下のようなアーキテクチャ�
 
 ### PostgreSQL Streaming Replication監視パターン
 
-![process_flow_sr]({{ production_url }}/assets/images/pg_monz_process_flow_sr.png)
+![process_flow_sr]({{ site.production_url }}/assets/images/pg_monz_process_flow_sr.png)
 
 Streaming Replication監視を実施するには、Streaming Replication監視用のテンプレートをホストに割り当てます。  
 Streaming Replication監視用のテンプレートはPostgreSQLサーバ単体の稼働監視用テンプレートの内容をリンクしているため、
@@ -120,7 +120,7 @@ Streaming Replication監視用のテンプレートはPostgreSQLサーバ単体�
 
 ### pgpool-II監視パターン
 
-![process_flow_pgpool]({{ production_url }}/assets/images/pg_monz_process_flow_pgpool.png)
+![process_flow_pgpool]({{ site.production_url }}/assets/images/pg_monz_process_flow_pgpool.png)
 
 pgpool-II監視を実施するには、各pgpool-IIサーバに対するホストを登録し、pgpool-II監視用テンプレート(Template App pgpool-II)を割り当てます。
 このテンプレートを登録することで以下の監視処理が行われます。
@@ -278,7 +278,7 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 監視対象システムのシステム構成によって適用するテンプレートが異なります。
 以下に示すシステム構成毎の適用パターンに沿ってzabbixフロントエンドでホストを作成します。
 
-![template_pattern]({{ production_url }}/assets/images/template_pattern.png)
+![template_pattern]({{ site.production_url }}/assets/images/template_pattern.png)
 
 ####PostgreSQLホスト・ホストグループの作成
 
@@ -337,8 +337,8 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 
 ####監視項目詳細
 
-* [監視アイテム一覧]({{ production_url }}/assets/docs/item_list.pdf)
-* [トリガー一覧]({{ production_url }}/assets/docs/trigger_list.pdf)
+* [監視アイテム一覧]({{ site.production_url }}/assets/docs/item_list.pdf)
+* [トリガー一覧]({{ site.production_url }}/assets/docs/trigger_list.pdf)
 
 ## 問い合わせ先 {#contact}
 
