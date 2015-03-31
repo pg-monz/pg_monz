@@ -1,4 +1,4 @@
-pg_monz 2.0 **Beta Version**
+pg_monz 2.0
 ============================
 pg_monz (PostgreSQL monitoring template for Zabbix) is a Zabbix template for
 monitoring PostgreSQL. It enables various types of monitoring of PostgreSQL
@@ -38,7 +38,7 @@ The following are main applications.
 #### Applications | PostgreSQL
 |application name   |summary of monitoring                                                                            |
 |:------------------|-------------------------------------------------------------------------------------------------|
-|pg.connections     |Connection count, state to PostgreSQL                                                            |
+|pg.transactions    |Connection count, state to PostgreSQL, the number of commited, rolled back transactions          |
 |pg.log             |log monitoring for PostgreSQL                                                                    |
 |pg.size            |garbage ratio, DB size                                                                           |
 |pg.slow_query      |slow query count which exceeds the threshold value                                               |
