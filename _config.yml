@@ -146,14 +146,14 @@ navbar_list :
     name_en: Requirements
     link: /index.html#software
     link_en: /index-en.html#software
-  - name: インストール方法
+  - name: 動作イメージ
+    name_en: Process flow
+    link: /index.html#flow
+    link_en: /index-en.html#flow
+  - name: インストール手順
     name_en: Installation
     link: /index.html#install
     link_en: /index-en.html#install
-  - name: 使用方法
-    name_en: Usage
-    link: /index.html#usage
-    link_en: /index-en.html#usage
   - name: 監視項目
     name_en: Monitoring items
     link: /index.html#items
@@ -166,7 +166,7 @@ navbar_list :
     name_en: License
     link: /index.html#license
     link_en: /index-en.html#license
-  - name: English
-    name_en: Japanese
-    link: /index-en.html
-    link_en: /index.html
+#  - name: English
+#    name_en: Japanese
+#    link: /index-en.html
+#    link_en: /index.html

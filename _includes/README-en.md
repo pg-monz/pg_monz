@@ -1,4 +1,4 @@
-# About pg_monz {#about}
+## About pg_monz {#about}
 
 PostgreSQL monitoring template for Zabbix (pg_monz) is a Zabbix template for
 monitoring PostgreSQL. It enables various types of monitoring of PostgreSQL
@@ -15,16 +15,17 @@ Pg_monz consists of the following contents:
 |find_dbname.sh           |Database discovery script                   |
 |find_dbname_table.sh     |Table discovery script                      |
 
-# Release notes {#releases}
+## Release notes {#releases}
 
+* [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
 * [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
 * [2013/11/05 ver.1.0.0](https://github.com/pg-monz/pg_monz/releases/tag/1.0)
 
-# Download {#download}
+## Download {#download}
 
 [Download from GitHub releases page](https://github.com/pg-monz/pg_monz/releases)
 
-# Requirements {#software}
+## Requirements {#software}
 
 pg_monz requires the following software products:  
 Also note that Zabbix agent must be installed on the monitoring target server
@@ -36,12 +37,12 @@ information.
 |Zabbix    |2.0 or later|
 |PostgreSQL|9.2 or later|
 
-# Installation {#install}
+## Installation {#install}
 
 The following instruction assumes that the installation and configuration of
 the above software is finished.
 
-## 1. Installation of configuration file and scripts
+### 1. Installation of configuration file and scripts
 
 Copy the User parameter configuration file for agent
 (userparameter_pgsql.conf) to the specified location of the machine that
@@ -72,7 +73,7 @@ chmod +x /usr/local/bin/find_dbname_table.sh
 
 If the user of executing psql need password authentication you should make .pgpass file and put it in the home directory of Zabbix Agent starting user.
 
-## 2. Import of template
+### 2. Import of template
 
 Log into the Zabbix Web interface and import the template with the following
 procedure:
@@ -84,7 +85,7 @@ Click 'Import' at the upper right, select pg_monz_template.xml on 'Import file' 
 If successful, 'Template App PostgreSQL' will be added on the templates list.
 ![template_imported]({{ site.production_url }}/assets/images/template_imported.png)
 
-## 3. Configuration of template macros
+### 3. Configuration of template macros
 
 Modify the configuration of template macros according to the system environments by the following procedure:
 
@@ -103,11 +104,11 @@ Normally following macros will require modifications.
 |{$PGROLE}      |PostgreSQL user name                                                 |
 |{$PGSCRIPTDIR} |Directory that has scripts installed                                 |
 
-# Usage {#usage}
+## Usage {#usage}
 
 The following instruction describes how to start monitoring using the imported templates.
 
-## 1. Creating PostgreSQL host
+### 1. Creating PostgreSQL host
 
 Creates PostgreSQL host.
 
@@ -119,7 +120,7 @@ Select 'Templates' tab and click 'Add'.
 Select 'Template App PostgreSQL' and click 'Select' and 'Save'.
 ![host_template_select]({{ site.production_url }}/assets/images/host_template_select.png)
 
-## 2. Check the result of monitoring
+### 2. Check the result of monitoring
 
 If configured correctly, monitoring will be started automatically after a while.
 To check the result of monitoring, select 'Monitoring' - 'Latest data' tab.
@@ -128,9 +129,9 @@ If monitoring data are succesfully obtained, the registered host is displayed on
 ![latest_items]({{ site.production_url }}/assets/images/latest_items.png)
 Also note that it takes a while for per-database monitoring items to be displayed because the discovery of database name is executed every hour by default.
 
-# Monitoring items {#items}
+## Monitoring items {#items}
 
-## Alive monitoring of PostgreSQL server
+### Alive monitoring of PostgreSQL server
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -139,13 +140,13 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|PostgreSQL process is not running.|Number of process of PostgreSQL server is 0|
 |Trigger|PostgreSQL service is not running.|SQL execution on PostgreSQL server failed|
 
-## Monitoring of PostgreSQL log
+### Monitoring of PostgreSQL log
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
 |Item|Log of $1|Messages that include PANIC,FATAL,ERROR on server log|
 
-## Monitoring of database size
+### Monitoring of database size
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -153,7 +154,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|\[DB name\] DB Size is too large|Database size exceeds threshold|
 |Graph|\[DB name\] DB Size|Size transition of target database|
 
-## Monitoring of backend process
+### Monitoring of backend process
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -165,7 +166,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|Many connections are forked.|Number of backend process exceeds threshold|
 |Graph|Connection count|Transition of number of backend process|
 
-## Monitoring of execution of checkpoints
+### Monitoring of execution of checkpoints
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -174,7 +175,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|Checkpoints are occurring too frequently|Checkpoint count in a specific period exceeds threshold|
 |Graph|Checkpoint count|Transition of Checkpoint count|
 
-## Monitoring of cache hit ratio
+### Monitoring of cache hit ratio
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -182,7 +183,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|\[DB name\] Cache hit ratio is too low|Cache hit ratio of target database is less than its threshold|
 |Graph|\[DB name\] Cache Hit Ratio|Transition of cache hit ratio of target database|
 
-## Monitoring of deadlocks
+### Monitoring of deadlocks
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -190,7 +191,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|\[DB name\] Deadlocks occurred too frequently|Deadlocks occurred more than threshold on target database|
 |Graph|\[DB name\] Deadlocks|Transition of number of deadlocks on target database|
 
-## Monitoring of transaction processes
+### Monitoring of transaction processes
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -198,7 +199,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Item|\[DB name\] Rolled back transactions|Number of ROLLBACK on target database|
 |Graph|\[DB name\] Number of commited/rolled back transactions|Transition of number of COMMIT/ROLLBACK|
 
-## Monitoring of temporary file generation
+### Monitoring of temporary file generation
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -206,7 +207,7 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Trigger|\[DB name\] Too many temp bytes|Temporary file output on target database exceeds threshold|
 |Graph|\[DB name\] Temp file size|Transition of amount of temporary files on target database|
 
-## Monitoring of retained backend processes
+### Monitoring of retained backend processes
 
 |Type|Name on Zabbix|Information of item and graph, trigger condition|
 |--|--|--|
@@ -215,15 +216,15 @@ Also note that it takes a while for per-database monitoring items to be displaye
 |Item|Slow select queries|Number of backend processes which take more than specified time (SELECT processing)|
 |Trigger|Too many slow queries|Number of backend processes which take more than specified time exceeds threshold|
 
-# Contact {#contact}
+## Contact {#contact}
 
 pg_monz Users Group  
 <pg_monz@googlegroups.com>
 
-# License {#license}
+## License {#license}
 
 pg_monz is distributed under the Apache License Version 2.0. 
 The whole text of Apache License Version 2.0 can be referred to [here](http://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright (C) 2013-2014 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2014 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2015 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2015 TIS Inc. All Rights Reserved.
