@@ -1,19 +1,77 @@
 ## About pg_monz {#about}
 
 PostgreSQL monitoring template for Zabbix (pg_monz) is a Zabbix template for
-monitoring PostgreSQL. It enables various types of monitoring of PostgreSQL
-such as alive, resource, performance, etc.
-Pg_monz also supports automatic discovery of databases and tables using the
-discovery feature of Zabbix and can automatically start monitoring.
+monitoring PostgreSQL. 
 
-Pg_monz consists of the following contents:
+### Why pg_monz?
 
-|File name                |Function                                    |
+pg_monz enables various types of monitoring of PostgreSQL such as alive, resource, performance, etc.
+It supports some constitution patterns which includes single PostgreSQL pattern, HA pattern with Streaming Replication and load balancing pattern with pgpool-II.
+You can use pg_monz for auto recovery at the time of PostgreSQL system troubles, monitoring long-term changes in PostgreSQL system status, and so on.
+
+### Major changes between 1.0 and 2.0
+
+pg_monz was first released as version 1.0 in December 2013.
+At version 1.0, supported pattern had been only single PostgreSQL pattern.
+Since version 2.0, it includes the following changes.
+
+#### (1) Add new monitoring features
+
+Support the following PostgreSQL systems pattern in addition to PostgreSQL single pattern.
+
+* High availability pattern by using PostgreSQL Streaming Replication
+* Load balancing pattern by using pgpool-II
+
+#### (2) Performance improvement
+
+At version 1.0, pg_monz connects to PostgreSQL server with psql command through Zabbix Agent every monitoring processes.
+In this way, in case of more items and shorter monitoring interval, many connections leads to PostgreSQL server high load.
+At version 2.0, pg_monz collects monitoring data from PostgreSQL in bulk.
+
+For more information see [Proccess flow]({{ site.production_url }}/index-en.html#flow).
+
+### Composition of pg_monz
+
+pg_monz consists of the following contents:
+
+|Directory/File name      |Function                                    |
 |-------------------------|--------------------------------------------|
-|pg_monz_template.xml     |Monitoring template                         |
-|userparameter_pgsql.conf |User parameter configuration file for agent |
-|find_dbname.sh           |Database discovery script                   |
-|find_dbname_table.sh     |Table discovery script                      |
+|Template                 |Monitoring template                         |
+|usr-local-bin/*          |Backend scripts                             |
+|usr-local-etc/*          |Configuration files for backend scripts     |
+|zabbix-agentd.d/userparameter_pgsql.conf  |UserParameter configuration file for Zabbix Agent |
+
+#### (1) Templates
+
+Template directory includes the following 5 monitoring template xml.
+
+
+|Template name |Use|
+|--------------|----|
+|Template_App_PostgreSQL.xml|Monitoring for single PostgreSQL server|
+|Template_App_PostgreSQL_SR.xml|Monitoring for Streaming Replication|
+|Template_App_PostgreSQL_SR_Cluster.xml|Monitoring for the whole Streaming Replication cluster|
+|Template_App_pgpool-II.xml|Monitoring for pgpool-II|
+|Template_App_pgpool-II_watchdog.xml|Monitoring for the whole pgpool-II cluster|
+
+#### (2) Backend scripts
+
+Usr-local-bin directory includes some backend scripts.
+These scripts are called by UserParameters which are defined at userparameter_pgsql.conf.
+
+#### (3) Configuration files
+
+Usr-local-etc directory includes two configuration files.
+These scripts are used to executing backend scripts.
+
+* pgsql_funcs.conf : Configuration file of connection information to PostgreSQL server
+* pgpool_funcs.conf : Configuration file of connection information to pgpool-II
+
+__[Note] At version 1.0, this information is set to Zabbix MACRO. But, at version 2.0, this information is set to above files.__
+
+#### (4) UserParameter configuration file
+
+This is the configuration file to define UserParameter.
 
 ## Release notes {#releases}
 
@@ -27,15 +85,58 @@ Pg_monz consists of the following contents:
 
 ## Requirements {#software}
 
-pg_monz requires the following software products:  
-Also note that Zabbix agent must be installed on the monitoring target server
-since it utilizes the functions of Zabbix agent for acquiring PostgreSQL
+pg_monz requires the following software products:
+Also note that Zabbix Agent and Zabbix Sender must be installed on the monitoring target server
+since it utilizes the functions of Zabbix Agent and Zabbix Sender for acquiring PostgreSQL
 information.
 
 |Software name|Version|
 |----------|------------|
-|Zabbix    |2.0 or later|
+|Zabbix Server,Zabbix Agent,Zabbix Sender |2.0 or later|
 |PostgreSQL|9.2 or later|
+|pgpool-II|3.4.0 or later|
+
+## Process flow {#flow}
+
+pg_monz v2.0 execute monitoring process under the following process flow.
+
+### Single PostgreSQL pattern
+
+![process_flow_single]({{ site.production_url }}/assets/images/pg_monz_process_flow_single.png)
+
+* (1) Zabbix agent type item(key: psql.get...) executes monitoring information in bulk regularly.
+* (2) On the backend, scripts are executed to collect PostgreSQL statistics information according to UserParameter definitions.
+* (3) In these scripts, psql commands are executed to collect data from Database.
+* (4) The information which is collected at (3) is sent to Zabbix with zabbix_sender command.
+* (5) The data which is sent by zabbix_sender is registered to some Zabbix trapper items.
+
+### Streaming Replication pattern
+
+![process_flow_sr]({{ site.production_url }}/assets/images/pg_monz_process_flow_sr.png)
+
+To execute monitoring for Streaming Replication, you should assign the template for Streaming Replicaion to hosts.
+Streaming Replication template is linked to the template for single PostgreSQL.
+The (1)-(5) processes is similar to single PostgreSQL pattern.
+
+There is only one different point.
+In this pattern, you should register the host for the whole Streaming Replication cluster.
+And you should assign 'Template App PostgreSQL SR Cluster' template to this host.
+So, this template execute aggregating the data to show the whole cluster status.(6)
+
+### pgpool-II pattern
+
+![process_flow_pgpool]({{ site.production_url }}/assets/images/pg_monz_process_flow_pgpool.png)
+
+To execute monitoring for pgpool-II, you should assign the template for pgpool-II to hosts.
+To assign this template, the following process is executed.
+
+* (1) Zabbix agent type item(key: pgpool.get...) executes monitoring information in bulk regularly.
+* (2) On the backend, scripts are executed to collect PostgreSQL statistics information according to UserParameter definitions.
+* (3) In these scripts, psql commands are executed towards pgpool-II to collect data.
+* (4) The information which is collected at (3) is sent to Zabbix with zabbix_sender command.
+* (5) The data which is sent by zabbix_sender is registered to some Zabbix trapper items.
+
+Like the Streaming Replication pattern, the whole status of pgpool-II cluster is monitored by assigning the template for pgpool-II cluster.(6)
 
 ## Installation {#install}
 
