@@ -138,184 +138,209 @@ To assign this template, the following process is executed.
 
 Like the Streaming Replication pattern, the whole status of pgpool-II cluster is monitored by assigning the template for pgpool-II cluster.(6)
 
+
 ## Installation {#install}
 
-The following instruction assumes that the installation and configuration of
-the above software is finished.
+###0.Preparation
 
-### 1. Installation of configuration file and scripts
+####（1）Configuring Zabbix Agent 
 
-Copy the User parameter configuration file for agent
-(userparameter_pgsql.conf) to the specified location of the machine that
-has agent installed.
-For example, if Zabbix agent is installed under /usr/local/zabbix/,
-copy the file to the following location:
+In order to monitor PostgreSQL/pgpool-II with pg_monz, Zabbix Agent must have permisson for :
+* Refering PostgreSQL logs and pgpool-II logs  
+* Executing pg_monz scripts 
+
+####（2）Installation of Zabbix Sender
+
+pg_monz use functions of Zabbix Sender in addition to Zabbix Agent. 
+If Zabbix Sender hasn't been installed yet, install 'zabbix-sender' package.  
+
+###1.Deployment of configuration files and scripts
+
+####（1）Configuration files
+
+Copy pg_monz configuration files to any directory on all of monitored server.
+By default, it is assumed that they are installed under /usr/local/etc
 
 {% highlight bash %}
-/usr/local/zabbix/etc/zabbix_agentd.conf.d/userparameter_pgsql.conf
+cp usr-local-etc/* /usr/local/etc
 {% endhighlight %}
 
-Also add Include setting to zabbix_agentd.conf so that the above file is
-loaded.
-(requires restart to apply the setting)
+If necessary, modfy the contents of them  
+
+#####pgsql_func.conf
 
 {% highlight properties %}
-Include=/usr/local/zabbix/etc/zabbix_agentd.conf.d/
+PGHOST=127.0.0.1  
+PGPORT=5432  
+PGROLE=postgres  
+PGDATABASE=postgres
 {% endhighlight %}
 
-Next, copy the scripts for discovery and add them executable permission.
-By default, it is assumed that they are installed under /usr/local/bin.
+#####pgpool_func.conf
+
+{% highlight properties %}
+PGPOOLHOST=127.0.0.1  
+PGPOOLPORT=9999  
+PGPOOLROLE=postgres  
+PGPOOLDATABASE=postgres  
+PGPOOLCONF=/usr/local/etc/pgpool.conf 
+{% endhighlight %}
+
+
+####（2）Scripts
+
+Copy pg_monz scripts to any directory on all of monitored server and add them executable permission.  
+By default, it is assumed that they are installed under /usr/local/bin
 
 {% highlight bash %}
-cp find_dbname.sh find_dbname_table.sh /usr/local/bin
-chmod +x /usr/local/bin/find_dbname.sh
-chmod +x /usr/local/bin/find_dbname_table.sh
+cp usr-local-bin/* /usr/local/bin  
+chmod +x /usr/local/bin/*.sh
 {% endhighlight %}
 
-If the user of executing psql need password authentication you should make .pgpass file and put it in the home directory of Zabbix Agent starting user.
+####（3）userparameter_pgsql.conf
 
-### 2. Import of template
+Copy the User parameter configuration file for Zabbix agent (userparameter_pgsql.conf) to the specified location of the machine that has agent installed.  
+For example, if Zabbix agent is installed under /etc/zabbix/, copy the file to the following location:
 
-Log into the Zabbix Web interface and import the template with the following
-procedure:
+{% highlight bash %}
+/etc/zabbix/zabbix_agentd.conf.d/userparameter_pgsql.conf
+{% endhighlight %}
 
-Select 'Configuration' - 'Templates' tab and display templates list.
-![template_list]({{ site.production_url }}/assets/images/template_list.png)
-Click 'Import' at the upper right, select pg_monz_template.xml on 'Import file' and click 'Import'.
-![template_import]({{ site.production_url }}/assets/images/template_import.png)
-If successful, 'Template App PostgreSQL' will be added on the templates list.
-![template_imported]({{ site.production_url }}/assets/images/template_imported.png)
+Also, add Include setting to zabbix_agentd.conf so that the above file is loaded.  
+(requires restart of zabbix agent to apply the setting)
 
-### 3. Configuration of template macros
+{% highlight properties %}
+Include=/etc/zabbix/zabbix_agentd.conf.d/
+{% endhighlight %}
 
-Modify the configuration of template macros according to the system environments by the following procedure:
+###2. Import of template
+Login to Zabbix Web interface and import the template with the following procedure:
 
-Select 'Configuration' - 'Templates' tab and display templates list.
-Click 'Template App PostgreSQL' and select 'Macros' tab.
-![template_macro]({{ site.production_url }}/assets/images/template_macro.png)
-Modify the values of each macro according to the system environments and click 'Save'.
-Normally following macros will require modifications.
+1. Select [Configuration] - [Templates] tab and display templates list.  
+2. Click [Import] at the upper right and import all of xml files including pg_monz package in order.  
+3. If successful, templates imported will be added on the template list.
 
-|Macro name     |Description                                                          |
-|---------------|---------------------------------------------------------------------|
-|{$PGDATABASE}  |Database name to connect                                             |
-|{$PGHOST}      |PostgreSQL host (if same host as Zabbix agent: 127.0.0.1)            |
-|{$PGLOGDIR}    |Directory that contains PostgreSQL log files                         |
-|{$PGPORT}      |Port number                                                          |
-|{$PGROLE}      |PostgreSQL user name                                                 |
-|{$PGSCRIPTDIR} |Directory that has scripts installed                                 |
+### 3.Configuration of template macros
+Modify the configuration of tempalte macros according to the system environments by the following procedure:  
 
-## Usage {#usage}
+1. In Zabbix Web interface, select [Configuration] - [Templates] and display templates list.  
+2. Click each template of pg_monz and select [Macros] tab. 
+3. Modify the values of each macro according to the system environments and click [Save].
 
-The following instruction describes how to start monitoring using the imported templates.
+#####Template App PostgreSQL
 
-### 1. Creating PostgreSQL host
+|Macro name                |Default Value                 |Description                                     |
+|--------------------------|------------------------------|------------------------------------------------|
+|{$PGCACHEHIT_THRESHOLD}   |90                            |Threshold for trigger of cache hit ratio [%]    |
+|{$PGCHECKPOINTS_THRESHOLD}|10                            |Threshold for trigger of Checkpoint count [count/seconds] |
+|{$PGCONNECTIONS_THRESHOLD}|95                            |Threshold for trigger of backend connections    |
+|{$PGDBSIZE_THRESHOLD}     |1073741824                    |Threshold for trigger of database size [byte]   |
+|{$PGDEADLOCK_THRESHOLD}   |0                             |Threshold for trigger of deadlock [count]       |
+|{$PGLOGDIR}               |/usr/local/pgsql/data/pg_log  |Directory that contains PostgreSQL log files    |
+|{$PGSCRIPTDIR}            |/usr/local/bin                |Directory that contains pg_monz scripts         |
+|{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |Directory that contains pg_monz configuration files |
+|{$PGSLOWQUERY_TIME_THRESHOLD}  |10                       |Threshold for Defining a long query as "Slow_Query" [seconds] |
+|{$PGSLOWQUERY_COUNT_THRESHOLD}  |10                      |Threshold for trigger of Slow_Query [count]    |
+|{$PGTEMPBYTES_THRESHOLD}  |8388608                       |Threshold for trigger of temp file size [byte] |
+|{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|filepath for zabbix_agentd.conf                  |
 
-Creates PostgreSQL host.
+#####Template App PostgreSQL SR
 
-Select 'Configuration' - 'Hosts' tab and display hosts list.
-![host_list]({{ site.production_url }}/assets/images/host_list.png)
-Click 'Create host' at the upper right and configure host name, groups etc. of target.
-![host_config]({{ site.production_url }}/assets/images/host_config.png)
-Select 'Templates' tab and click 'Add'.
-Select 'Template App PostgreSQL' and click 'Select' and 'Save'.
-![host_template_select]({{ site.production_url }}/assets/images/host_template_select.png)
+|Macro name                |Default Value                 |Description                                     |
+|--------------------------|------------------------------|------------------------------------------------|
+|{$PGSCRIPTDIR}            |/usr/local/bin                |Directory that contains pg_monz scripts         |
+|{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |Directory that contains pg_monz configuration files |
 
-### 2. Check the result of monitoring
+#####Template App pgpool-II
 
-If configured correctly, monitoring will be started automatically after a while.
-To check the result of monitoring, select 'Monitoring' - 'Latest data' tab.
+|Macro name                |Default Value                 |Description                                     |
+|--------------------------|------------------------------|------------------------------------------------|
+|{$PGPOOLLOGDIR}           |/var/log/pgpool               |Directory that contains pgpool-II log files     |
+|{$PGPOOLSCRIPTDIR}        |/usr/local/bin                |Directory that contains pg_monz scripts         |
+|{$PGPOOLSCRIPT_CONFDIR}   |/usr/local/etc                |Directory that contains pg_monz configuration files |
+|{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|filepath for zabbix_agentd.conf                 |
 
-If monitoring data are succesfully obtained, the registered host is displayed on the list. Click '+' at the left of the host name to display the obtained latest value of each item.
-![latest_items]({{ site.production_url }}/assets/images/latest_items.png)
-Also note that it takes a while for per-database monitoring items to be displayed because the discovery of database name is executed every hour by default.
+#####Template App pgpool-II watchdog
+
+|Macro name                |Default Value                 |Description                                     |
+|--------------------------|------------------------------|------------------------------------------------|
+|{$PGPOOL_HOST_GROUP}      |pgpool                        |host group name for pgpool-II hosts             |
+
+#####Template App PostgreSQL SR Cluster
+
+|Macro name                |Default Value                 |Description                                     |
+|--------------------------|------------------------------|------------------------------------------------|
+|{$PG_HOST_GROUP}          |PostgreSQL                    |host group name for PostgreSQL hosts            |
+
+
+###4. Creating host 
+
+####Relation of Host ,Template, and the configuration of the system  
+Templates that should be applied varies by the configuration of the monitored system. 
+The representative patterns are shown below:
+
+![template_pattern]({{ site.production_url }}/assets/images/template_pattern.png)
+
+####Creating PostgreSQL host/host group
+
+1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
+2. Click [Create host] at the upper right and configure hostname ,groups etc. of target.  
+3. Select [Templates] tab and click [Add].Select template that should be applied and click 'Select' and 'Save'.  
+4. Select [Configuration] - [Host Groups] - [Create host group] . 
+5. Input group name as "PostgreSQL" and select all hosts of PostgreSQL to input them into parameter of 'Hosts' and click [Save].
+
+####Creating pgpool-II host/host group
+
+1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
+2. Click [Create host] at the upper right and configure hostname ,groups etc. of target.  
+3. Select [Templates] tab and click [Add].Select template that should be applied and click 'Select' and 'Save'.  
+4. Select [Configuration] - [Host Groups] - [Create host group] . 
+5. Input group name as "pgpool" and select all hosts of pgpool-II to input them into parameter of 'Hosts' and click [Save].
+
+####Creating PostgreSQL Cluster host
+
+1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
+2. Click [Create host] at the upper right and Input hostname as "PostgreSQL Cluster" .  
+3. Select [Templates] tab and click [Add].Select template that should be applied and click 'Select' and 'Save'.  
+4. Select [Configuration] - [Host Groups] - [Create host group] . 
+5. Input group name as "PostgreSQL Cluster" and select "PostgreSQL Cluster" host to input it into parameter of 'Hosts' and click [Save].
+
 
 ## Monitoring items {#items}
 
-### Alive monitoring of PostgreSQL server
+#### Summaries of Monitoring items
 
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|Number of postgres process|Process check of PostgreSQL server|
-|Item|PostgreSQL service is running|SQL response check of PostgreSQL server|
-|Trigger|PostgreSQL process is not running.|Number of process of PostgreSQL server is 0|
-|Trigger|PostgreSQL service is not running.|SQL execution on PostgreSQL server failed|
+##### Applications for Monitoring PostgreSQL
 
-### Monitoring of PostgreSQL log
+|Application name   |Summary of monitoring                                                                              |
+|:------------------|----------------------------------------------------------------------------------------|
+|pg.transactions    |Connection count and state to PostgreSQL ,transactions count                            |
+|pg.log             |log monitoring for PostgreSQL                                                           |
+|pg.size            |garbage ratio, DB size                                                                  |
+|pg.slow_query      |slow query count which exceeds the threshold value                                      |
+|pg.status          |PostgreSQL processes working state                                                      |
+|pg.stat_database   |state of each database                                                                  |
+|pg.stat_table      |state of each table                                                                     |
+|pg.bgwriter        |state of background writer process                                                      |
+|pg.stat_replication|delay of replication data propagation using Streaming Replication                       |
+|pg.sr.status       |conflict count, write block existence or non-existence, process count using Streaming Replication|
+|pg.cluster.status  |PostgreSQL processes count as a cluster                                                 |
 
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|Log of $1|Messages that include PANIC,FATAL,ERROR on server log|
+##### Applications for Monitoring pgpool-II
 
-### Monitoring of database size
+|Application name   |Summary of monitoring                                                                   |
+|:------------------|----------------------------------------------------------------------------------------|
+|pgpool.cache       |cash informations using In Memory query Cache                                           |
+|pgpool.connections |frontend, backend connection count through pgpool-II                                    |
+|pgpool.log         |log monitoring for pgpool-II                                                            |
+|pgpool.nodes       |backend state, load balance ratio viewed from pgpool-II                                 |
+|pgpool.status      |pgpool-II processes working state, vip existence or non-existence                       |
+|pgpool.watchdog    |pgpool-II processes working state, vip existence or non-existence as a cluster          |
 
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|\[DB name\] DB Size|Size of target database|
-|Trigger|\[DB name\] DB Size is too large|Database size exceeds threshold|
-|Graph|\[DB name\] DB Size|Size transition of target database|
+#### Details of Monitoring items
 
-### Monitoring of backend process
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|Connections|Number of backend process (total)|
-|Item|Active (SQL processing) connections|Number of backend process (SQL processing)|
-|Item|Idle connections|Number of backend process (waiting for query from clients)|
-|Item|Idle in transaction connections|Number of backend process (waiting for commands in transaction)|
-|Item|Lock waiting connections|Number of backend process (waiting for locks in transaction)|
-|Trigger|Many connections are forked.|Number of backend process exceeds threshold|
-|Graph|Connection count|Transition of number of backend process|
-
-### Monitoring of execution of checkpoints
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|Checkpoint count (by checkpoint_segments)|Checkpoint count by checkpoint_segments|
-|Item|Checkpoint count (by checkpoint_timeout)|Checkpoint count by checkpoint_timeout|
-|Trigger|Checkpoints are occurring too frequently|Checkpoint count in a specific period exceeds threshold|
-|Graph|Checkpoint count|Transition of Checkpoint count|
-
-### Monitoring of cache hit ratio
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|\[DB name\] Cache Hit Ratio|Cache hit ratio of target database|
-|Trigger|\[DB name\] Cache hit ratio is too low|Cache hit ratio of target database is less than its threshold|
-|Graph|\[DB name\] Cache Hit Ratio|Transition of cache hit ratio of target database|
-
-### Monitoring of deadlocks
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|\[DB name\] Deadlocks|Number of deadlocks on target database|
-|Trigger|\[DB name\] Deadlocks occurred too frequently|Deadlocks occurred more than threshold on target database|
-|Graph|\[DB name\] Deadlocks|Transition of number of deadlocks on target database|
-
-### Monitoring of transaction processes
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|\[DB name\] Commited transactions|Number of COMMIT on target database|
-|Item|\[DB name\] Rolled back transactions|Number of ROLLBACK on target database|
-|Graph|\[DB name\] Number of commited/rolled back transactions|Transition of number of COMMIT/ROLLBACK|
-
-### Monitoring of temporary file generation
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|\[DB name\] Temp bytes|Bytes of data written to temporary files on target database|
-|Trigger|\[DB name\] Too many temp bytes|Temporary file output on target database exceeds threshold|
-|Graph|\[DB name\] Temp file size|Transition of amount of temporary files on target database|
-
-### Monitoring of retained backend processes
-
-|Type|Name on Zabbix|Information of item and graph, trigger condition|
-|--|--|--|
-|Item|Slow queries|Number of backend processes which take more than specified time (active)|
-|Item|Slow DML queries|Number of backend processes which take more than specified time (DML processing)|
-|Item|Slow select queries|Number of backend processes which take more than specified time (SELECT processing)|
-|Trigger|Too many slow queries|Number of backend processes which take more than specified time exceeds threshold|
+* [(pdf)Items_list]({{ site.production_url }}/assets/docs/item_list.pdf)
+* [(pdf)Triggers_list]({{ site.production_url }}/assets/docs/trigger_list.pdf)
 
 ## Contact {#contact}
 
