@@ -279,17 +279,9 @@ Modify the configuration of tempalte macros according to the system environments
 Templates that should be applied varies by the configuration of the monitored system. 
 The representative patterns are shown below:
 
+![template_pattern]({{ site.production_url }}/assets/images/template_pattern.png)
 
-|System design |||PostgreSQL HOST ||pgpool HOST |PostgreSQL Cluster HOST ||
-|Redundancy |Replication method |Load balancing /Fail over method |Template App PostgreSQL |Template App PostgreSQL SR |Template App pgpool-II |Template App PostgreSQL SR Cluster |Template App pgpool-II watchdog |
-|:------|:--------------------|:----------------------------|:--:|:--:|:--:|:--:|:--:|
-|Single|-|-|○|-|-|-|-|
-|Cluster|Streaming Replication|pgpool-II(master-slave-mode）|-|○|○|○|△※1|
-|Cluster|pgpool-II(replication-mode)|pgpool-II(replication-mode)|○|-|○|-|△※1|
-|Cluster|Streaming Replication|other|-|○|-|○|-|
-|Cluster|other|other|○|-|-|-|-|
-
-※1 ：pgpool-II watchdog機能利用時のみ適用
+*1 apply only to environment using pgpool-II watchdog  
 
 ####Creating PostgreSQL host/host group
 
