@@ -341,8 +341,8 @@ The representative patterns are shown below:
 
 #### Details of Monitoring items
 
-* [(pdf)Items_list]({{ site.production_url }}/assets/docs/item_list.pdf)
-* [(pdf)Triggers_list]({{ site.production_url }}/assets/docs/trigger_list.pdf)
+* [(pdf)Items_list]({{ site.production_url }}/assets/docs/item_list_en.pdf)
+* [(pdf)Triggers_list]({{ site.production_url }}/assets/docs/trigger_list_en.pdf)
 
 ## Contact {#contact}
 
