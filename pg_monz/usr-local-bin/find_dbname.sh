@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get list of Database Name which you want to monitor.
 # The default settings are excepted template databases(template0/template1).
