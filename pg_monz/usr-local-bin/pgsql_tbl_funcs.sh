@@ -24,7 +24,7 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.table_heap_cachehit_ratio[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select CASE heap_blks_hit+heap_blks_read WHEN 0 then 100 else round(heap_blks_hit*100/(heap_blks_hit+heap_blks_read), 2) end from pg_statio_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.table_idx_cachehit_ratio[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select CASE WHEN idx_blks_read is NULL then 0 when idx_blks_hit+idx_blks_read=0 then 100 else round(idx_blks_hit*100/(idx_blks_hit+heap_blks_read + 0.0001), 2) end from pg_statio_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
+						select '\"$HOST_NAME\"', 'psql.table_idx_cachehit_ratio[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select CASE WHEN idx_blks_read is NULL then 0 when idx_blks_hit+idx_blks_read=0 then 100 else round(idx_blks_hit*100/(idx_blks_hit+idx_blks_read + 0.0001), 2) end from pg_statio_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.table_n_dead_tup[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select n_dead_tup from pg_stat_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
 						union all \
