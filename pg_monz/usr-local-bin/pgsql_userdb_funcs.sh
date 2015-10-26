@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 APP_NAME="$1"
 PGSHELL_CONFDIR="$2"

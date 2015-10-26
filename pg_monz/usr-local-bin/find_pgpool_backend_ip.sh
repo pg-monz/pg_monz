@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get list of pgpool-II database backend name which you want to monitor.
 
