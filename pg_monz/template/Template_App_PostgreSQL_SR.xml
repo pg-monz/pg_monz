@@ -404,7 +404,7 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>[{#DBNAME}] Tablsespace conflicts</name>
+                            <name>[{#DBNAME}] Tablespace conflicts</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
