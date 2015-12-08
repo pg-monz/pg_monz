@@ -861,7 +861,7 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>pgpool-II backend Discavery</name>
+                    <name>pgpool-II backend Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -938,7 +938,7 @@
                     <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>pgpool-II backend Status Discavery</name>
+                    <name>pgpool-II backend Status Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
