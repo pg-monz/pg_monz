@@ -533,7 +533,7 @@
                     <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>Streaming Replication Discavery</name>
+                    <name>Streaming Replication Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -610,7 +610,7 @@
                     <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>Streaming Replication Status Discavery</name>
+                    <name>Streaming Replication Status Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
