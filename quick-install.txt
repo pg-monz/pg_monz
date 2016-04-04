@@ -39,7 +39,7 @@
    PGPOOLCONF=/usr/local/etc/pgpool.conf
    ----
 
-   (*) the definition of configuration direcoty is in the tempalte macro.
+   (*) the definition of configuration directory is in the tempalte macro.
        {$PGSCRIPT_CONFDIR}
        {$PGPOOLSCRIPTS_CONFDIR}
 
@@ -47,7 +47,7 @@
 
    #cp usr-local-bin/* /usr/local/bin
 
-   (*) the definition of scripts direcroty is in the template macro.
+   (*) the definition of scripts directory is in the template macro.
        {$PGSCRIPTDIR}
        {$PGPOOLSCRIPTDIR}
 
