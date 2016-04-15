@@ -1,4 +1,4 @@
-* How to install pg_monz v2-dev
+* How to install pg_monz v2
 
 1. requirements
 
