@@ -22,7 +22,7 @@
 
    #cp usr-local-etc/* /usr/local/etc
 
-   default variables for pgsql_func.conf
+   default variables for pgsql_funcs.conf
    ----
    PGHOST=127.0.0.1
    PGPORT=5432
@@ -30,7 +30,7 @@
    PGDATABASE=postgres
    ----
 
-   default variables for pgpool_func.conf
+   default variables for pgpool_funcs.conf
    ----
    PGPOOLHOST=127.0.0.1
    PGPOOLPORT=9999
