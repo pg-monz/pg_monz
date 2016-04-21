@@ -133,11 +133,11 @@ pgpool-II監視を実施するには、各pgpool-IIサーバに対するホス�
 
 Streaming Replication監視パターンと同様、クラスタ全体の状況を監視するテンプレート(Template App pgpool-II watchdog)を割り当てることで各pgpool-IIの稼働状況を監視した結果をアグリゲート(6)して管理することができます。
 
-##インストール手順 {#install}
+## インストール手順 {#install}
 
-###0.事前準備
+### 0.事前準備
 
-####（1）Zabbixエージェントの設定
+#### （1）Zabbixエージェントの設定
 
 pg-monzでは監視対象サーバにおいて、Zabbixエージェントが以下を実行します。  
 
@@ -147,15 +147,15 @@ pg-monzでは監視対象サーバにおいて、Zabbixエージェントが以�
 Zabbixエージェントがこれらを実行可能なように監視対象サーバおよびZabbixエージェントの権限を適切に設定してください。  
 
 
-####（2）Zabbix Senderの導入
+#### （2）Zabbix Senderの導入
 
 「動作環境」に記したとおり、pg-monzではZabbix Agentの他、Zabbix Senderを利用します。
 監視対象サーバにZabbix Senderがインストールされていない場合、「zabbix-sender」パッケージをインストールしてください。  
 
 
-###1. 設定ファイル、スクリプトの配置
+### 1. 設定ファイル、スクリプトの配置
 
-####（1）設定ファイルの配置
+#### （1）設定ファイルの配置
 
 pg-monzパッケージに含まれる「usr-local-etc」フォルダ配下にある設定ファイルを、監視対象サーバ上の任意の場所にコピーします。  
 デフォルトでは/usr/local/etc/ 以下にインストールされることを想定しています。
@@ -166,7 +166,7 @@ cp usr-local-etc/* /usr/local/etc
 
 必要に応じて設定ファイルの値を修正します。  
 
-#####pgsql_func.conf
+##### pgsql_func.conf
 
 {% highlight properties %}
 PGHOST=127.0.0.1  
@@ -175,7 +175,7 @@ PGROLE=postgres
 PGDATABASE=postgres
 {% endhighlight %}
 
-#####pgpool_func.conf
+##### pgpool_func.conf
 
 {% highlight properties %}
 PGPOOLHOST=127.0.0.1  
@@ -186,7 +186,7 @@ PGPOOLCONF=/usr/local/etc/pgpool.conf
 {% endhighlight %}
 
 
-####（2）スクリプトの配置
+#### （2）スクリプトの配置
 
 pg-monzパッケージに含まれる「usr-local-bin」フォルダ配下にあるスクリプトを、監視対象サーバ上の任意の場所にコピーし、実行権限を付与します。  
 デフォルトでは/usr/local/bin/ 以下にインスールされることを想定しています。
@@ -196,7 +196,7 @@ cp usr-local-bin/* /usr/local/bin
 chmod +x /usr/local/bin/*.sh
 {% endhighlight %}
 
-####（3）userparameter_pgsql.confの配置
+#### （3）userparameter_pgsql.confの配置
 
 エージェント用ユーザパラメータ設定ファイル（userparameter_pgsql.conf）を、監視対象サーバ上の所定の場所にコピーします。  
 例えば、 Zabbixエージェントが /etc/zabbix/にインストールされている場合は、以下の場所にファイルをコピーします。
@@ -213,7 +213,7 @@ chmod +x /usr/local/bin/*.sh
 Include=/etc/zabbix/zabbix_agentd.conf.d/
 {% endhighlight %}
 
-###2. テンプレートインポート
+### 2. テンプレートインポート
 ZabbixのWebインターフェースにログインし、以下の手順でテンプレートをインポートします。
 
 1. [設定] - [テンプレート]を選択し、テンプレート一覧を表示します。
@@ -225,7 +225,7 @@ ZabbixのWebインターフェースにログインし、以下の手順でテ�
 テンプレートに定義されているマクロの値を必要に応じて修正します。  
 ZabbixのWebインターフェースの[設定]→[テンプレート]→[マクロ]を選択し、値を修正後、[保存]をクリックします。 
 
-#####Template App PostgreSQL
+##### Template App PostgreSQL
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
@@ -242,14 +242,14 @@ ZabbixのWebインターフェースの[設定]→[テンプレート]→[マク
 |{$PGTEMPBYTES_THRESHOLD}  |8388608                       |一次ファイルサイズトリガー閾値（byte）          |
 |{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|zabbix_agentd.confファイルパス                  |
 
-#####Template App PostgreSQL SR
+##### Template App PostgreSQL SR
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PGSCRIPTDIR}            |/usr/local/bin                |pg-monzスクリプト配置ディレクトリ               |
 |{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |pg-monz設定ファイル配置ディレクトリ             |
 
-#####Template App pgpool-II
+##### Template App pgpool-II
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
@@ -258,29 +258,29 @@ ZabbixのWebインターフェースの[設定]→[テンプレート]→[マク
 |{$PGPOOLSCRIPT_CONFDIR}   |/usr/local/etc                |pg-monz設定ファイル配置ディレクトリ             |
 |{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|zabbix_agentd.confファイルパス                  |
 
-#####Template App pgpool-II watchdog
+##### Template App pgpool-II watchdog
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PGPOOL_HOST_GROUP}      |pgpool                        |pgpoolホストグループ名                          |
 
-#####Template App PostgreSQL SR Cluster
+##### Template App PostgreSQL SR Cluster
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PG_HOST_GROUP}          |PostgreSQL                    |PostgreSQLホストグループ名                      |
 
 
-###4. ホストの作成
+### 4. ホストの作成
 ZabbixのWebインターフェース上で監視対象となるホストおよびホストグループを作成します。
 
-####ホストーテンプレートーシステム構成の関係
+#### ホストーテンプレートーシステム構成の関係
 監視対象システムのシステム構成によって適用するテンプレートが異なります。
 以下に示すシステム構成毎の適用パターンに沿ってzabbixフロントエンドでホストを作成します。
 
 ![template_pattern]({{ site.production_url }}/assets/images/template_pattern.png)
 
-####PostgreSQLホスト・ホストグループの作成
+#### PostgreSQLホスト・ホストグループの作成
 
 1. [設定] - [ホスト]を選択し、ホスト一覧を表示します。 
 2. 右上の[ホストの作成]をクリックしPostgreSQLサーバのホスト名等を設定します。 
@@ -288,14 +288,14 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
    ※「Template App PostgreSQL」か「Template App PostgreSQL SR」のいずれか  
 4. [設定] - [ホストグループ] - [ホストグループの作成]をクリックし、グループ名に「PostgreSQL」、グループに含まれるホストに作成したPostgreSQLホストを追加し、[保存]をクリックします。
 
-####pgpool-IIホスト・ホストグループの作成
+#### pgpool-IIホスト・ホストグループの作成
 
 1. [設定] - [ホスト]を選択し、ホスト一覧を表示します。 
 2. 右上の[ホストの作成]をクリックし、pgpool-IIサーバのホスト名等を設定します。 
 3. [テンプレート] - [新規テンプレートをリンク]より、「Template App pgpool-II」を検索して[追加]、[保存]をクリックします。  
 4. [設定] - [ホストグループ] - [ホストグループの作成]をクリックし、グループ名に「pgpool」、グループに含まれるホストに作成したpgpool-IIホストを追加し、[保存]をクリックします。
 
-####PostgreSQL Clusterホストの作成
+#### PostgreSQL Clusterホストの作成
 
 1. [設定] - [ホスト]を選択し、ホスト一覧を表示します。 
 2. 右上の[ホストの作成]をクリックし、ホスト名に「PostgreSQL Cluster」と入力します。 
@@ -306,7 +306,7 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 
 ## 監視項目 {#items}
 
-####監視項目概要
+#### 監視項目概要
 
 ##### PostgreSQL の監視に関連するアプリケーション
 
@@ -335,7 +335,7 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 |pgpool.status      |pgpool-II のプロセス稼働状況、仮想 IP 保持状況                                          |
 |pgpool.watchdog    |クラスタ単位の pgpool-II のプロセス稼働状況、仮想 IP 保持状況                           |
 
-####監視項目詳細
+#### 監視項目詳細
 
 * [監視アイテム一覧]({{ site.production_url }}/assets/docs/item_list.pdf)
 * [トリガー一覧]({{ site.production_url }}/assets/docs/trigger_list.pdf)
