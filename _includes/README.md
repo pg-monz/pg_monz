@@ -135,7 +135,7 @@ Streaming Replication監視パターンと同様、クラスタ全体の状況�
 
 ## インストール手順 {#install}
 
-### 0.事前準備
+### 0. 事前準備
 
 #### （1）Zabbixエージェントの設定
 
@@ -350,5 +350,5 @@ pg_monzユーザーグループ
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 Apache License Version 2.0 の全文は [こちら](http://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
 
-Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.  
 Copyright (C) 2013-2016 TIS Inc. All Rights Reserved.

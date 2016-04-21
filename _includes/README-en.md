@@ -154,7 +154,7 @@ In order to monitor PostgreSQL/pgpool-II with pg_monz, Zabbix Agent must have pe
 pg_monz use functions of Zabbix Sender in addition to Zabbix Agent. 
 If Zabbix Sender hasn't been installed yet, install 'zabbix-sender' package.  
 
-### 1.Deployment of configuration files and scripts
+### 1. Deployment of configuration files and scripts
 
 #### (1) Configuration files
 
@@ -354,5 +354,5 @@ pg_monz Users Group
 pg_monz is distributed under the Apache License Version 2.0. 
 The whole text of Apache License Version 2.0 can be referred to [here](http://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.  
 Copyright (C) 2013-2016 TIS Inc. All Rights Reserved.
