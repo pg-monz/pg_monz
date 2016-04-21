@@ -141,22 +141,22 @@ Like the Streaming Replication pattern, the whole status of pgpool-II cluster is
 
 ## Installation {#install}
 
-###0.Preparation
+### 0. Preparation
 
-####（1）Configuring Zabbix Agent 
+#### (1) Configuring Zabbix Agent 
 
 In order to monitor PostgreSQL/pgpool-II with pg_monz, Zabbix Agent must have permisson for :
 * Refering PostgreSQL logs and pgpool-II logs  
 * Executing pg_monz scripts 
 
-####（2）Installation of Zabbix Sender
+#### (2) Installation of Zabbix Sender
 
 pg_monz use functions of Zabbix Sender in addition to Zabbix Agent. 
 If Zabbix Sender hasn't been installed yet, install 'zabbix-sender' package.  
 
-###1.Deployment of configuration files and scripts
+### 1.Deployment of configuration files and scripts
 
-####（1）Configuration files
+#### (1) Configuration files
 
 Copy pg_monz configuration files to any directory on all of monitored server.
 By default, it is assumed that they are installed under /usr/local/etc
@@ -167,7 +167,7 @@ cp usr-local-etc/* /usr/local/etc
 
 If necessary, modfy the contents of them  
 
-#####pgsql_func.conf
+##### pgsql_func.conf
 
 {% highlight properties %}
 PGHOST=127.0.0.1  
@@ -176,7 +176,7 @@ PGROLE=postgres
 PGDATABASE=postgres
 {% endhighlight %}
 
-#####pgpool_func.conf
+##### pgpool_func.conf
 
 {% highlight properties %}
 PGPOOLHOST=127.0.0.1  
@@ -187,7 +187,7 @@ PGPOOLCONF=/usr/local/etc/pgpool.conf
 {% endhighlight %}
 
 
-####（2）Scripts
+#### (2) Scripts
 
 Copy pg_monz scripts to any directory on all of monitored server and add them executable permission.  
 By default, it is assumed that they are installed under /usr/local/bin
@@ -197,7 +197,7 @@ cp usr-local-bin/* /usr/local/bin
 chmod +x /usr/local/bin/*.sh
 {% endhighlight %}
 
-####（3）userparameter_pgsql.conf
+#### (3) userparameter_pgsql.conf
 
 Copy the User parameter configuration file for Zabbix agent (userparameter_pgsql.conf) to the specified location of the machine that has agent installed.  
 For example, if Zabbix agent is installed under /etc/zabbix/, copy the file to the following location:
@@ -213,21 +213,21 @@ Also, add Include setting to zabbix_agentd.conf so that the above file is loaded
 Include=/etc/zabbix/zabbix_agentd.conf.d/
 {% endhighlight %}
 
-###2. Import of template
+### 2. Import of template
 Login to Zabbix Web interface and import the template with the following procedure:
 
 1. Select [Configuration] - [Templates] tab and display templates list.  
 2. Click [Import] at the upper right and import all of xml files including pg_monz package in order.  
 3. If successful, templates imported will be added on the template list.
 
-### 3.Configuration of template macros
+### 3. Configuration of template macros
 Modify the configuration of tempalte macros according to the system environments by the following procedure:  
 
 1. In Zabbix Web interface, select [Configuration] - [Templates] and display templates list.  
 2. Click each template of pg_monz and select [Macros] tab. 
 3. Modify the values of each macro according to the system environments and click [Save].
 
-#####Template App PostgreSQL
+##### Template App PostgreSQL
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
@@ -244,14 +244,14 @@ Modify the configuration of tempalte macros according to the system environments
 |{$PGTEMPBYTES_THRESHOLD}  |8388608                       |Threshold for trigger of temp file size [byte] |
 |{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|filepath for zabbix_agentd.conf                  |
 
-#####Template App PostgreSQL SR
+##### Template App PostgreSQL SR
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PGSCRIPTDIR}            |/usr/local/bin                |Directory that contains pg_monz scripts         |
 |{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |Directory that contains pg_monz configuration files |
 
-#####Template App pgpool-II
+##### Template App pgpool-II
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
@@ -260,22 +260,22 @@ Modify the configuration of tempalte macros according to the system environments
 |{$PGPOOLSCRIPT_CONFDIR}   |/usr/local/etc                |Directory that contains pg_monz configuration files |
 |{$ZABBIX_AGENTD_CONF}     |/etc/zabbix/zabbix_agentd.conf|filepath for zabbix_agentd.conf                 |
 
-#####Template App pgpool-II watchdog
+##### Template App pgpool-II watchdog
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PGPOOL_HOST_GROUP}      |pgpool                        |host group name for pgpool-II hosts             |
 
-#####Template App PostgreSQL SR Cluster
+##### Template App PostgreSQL SR Cluster
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
 |{$PG_HOST_GROUP}          |PostgreSQL                    |host group name for PostgreSQL hosts            |
 
 
-###4. Creating host 
+### 4. Creating host 
 
-####Relation of Host ,Template, and the configuration of the system  
+#### Relation of Host, Template, and the configuration of the system  
 Templates that should be applied varies by the configuration of the monitored system. 
 The representative patterns are shown below:
 
@@ -283,7 +283,7 @@ The representative patterns are shown below:
 
 *1 apply only to environment using pgpool-II watchdog  
 
-####Creating PostgreSQL host/host group
+#### Creating PostgreSQL host/host group
 
 1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
 2. Click [Create host] at the upper right and configure hostname ,groups etc. of target.  
@@ -291,7 +291,7 @@ The representative patterns are shown below:
 4. Select [Configuration] - [Host Groups] - [Create host group] . 
 5. Input group name as "PostgreSQL" and select all hosts of PostgreSQL to input them into parameter of 'Hosts' and click [Save].
 
-####Creating pgpool-II host/host group
+#### Creating pgpool-II host/host group
 
 1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
 2. Click [Create host] at the upper right and configure hostname ,groups etc. of target.  
@@ -299,7 +299,7 @@ The representative patterns are shown below:
 4. Select [Configuration] - [Host Groups] - [Create host group] . 
 5. Input group name as "pgpool" and select all hosts of pgpool-II to input them into parameter of 'Hosts' and click [Save].
 
-####Creating PostgreSQL Cluster host
+#### Creating PostgreSQL Cluster host
 
 1. In Zabbix Web interface ,select [Configuration] - [Hosts]tab and display hosts list.  
 2. Click [Create host] at the upper right and Input hostname as "PostgreSQL Cluster" .  
