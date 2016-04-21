@@ -75,6 +75,7 @@ This is the configuration file to define UserParameter.
 
 ## Release notes {#releases}
 
+* [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
 * [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
 * [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
 * [2013/11/05 ver.1.0.0](https://github.com/pg-monz/pg_monz/releases/tag/1.0)
@@ -167,7 +168,7 @@ cp usr-local-etc/* /usr/local/etc
 
 If necessary, modfy the contents of them  
 
-##### pgsql_func.conf
+##### pgsql_funcs.conf
 
 {% highlight properties %}
 PGHOST=127.0.0.1  
@@ -176,7 +177,7 @@ PGROLE=postgres
 PGDATABASE=postgres
 {% endhighlight %}
 
-##### pgpool_func.conf
+##### pgpool_funcs.conf
 
 {% highlight properties %}
 PGPOOLHOST=127.0.0.1  
