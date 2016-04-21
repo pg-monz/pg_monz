@@ -350,5 +350,5 @@ pg_monzユーザーグループ
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 Apache License Version 2.0 の全文は [こちら](http://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
 
-Copyright (C) 2013-2015 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2015 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.
+Copyright (C) 2013-2016 TIS Inc. All Rights Reserved.
