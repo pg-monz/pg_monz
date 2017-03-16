@@ -637,7 +637,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,]</key>
+                    <key>proc.num[postmaster,,,]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3237,7 +3237,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template App PostgreSQL:proc.num[postgres,,,].last(0)}=0</expression>
+            <expression>{Template App PostgreSQL:proc.num[postmaster,,,].last(0)}=0</expression>
             <name>PostgreSQL process is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>

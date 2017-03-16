@@ -77,7 +77,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,wal receiver]</key>
+                    <key>proc.num[,,,&quot;^postgres:.*wal.*receiver.*process&quot;]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -120,7 +120,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,wal sender]</key>
+                    <key>proc.num[,,,&quot;^postgres:.*wal.*sender.*process&quot;]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
