@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get list of pgpool-II database backend name which you want to monitor.
+# Get status of pgpool-II database backend which you want to monitor.
 
 APP_NAME="$1"
 PGPOOLSHELL_CONFDIR="$2"
@@ -30,9 +30,13 @@ case "$APP_NAME" in
 							BACKENDSTATE=`echo $backendrecord | awk -F, '{print $4}'`
 							BACKENDWEIGHT=`echo $backendrecord | awk -F, '{print $5}'`
 							BACKENDROLE=`echo $backendrecord | awk -F, '{print $6}'`
+							BACKENDREPLICATIONDELAY=`echo $backendrecord | awk -F, '{print $9}'`
 							echo -e "\"$HOST_NAME\" pgpool.backend.status[${BACKEND}] $TIME $BACKENDSTATE"
 							echo -e "\"$HOST_NAME\" pgpool.backend.weight[${BACKEND}] $TIME $BACKENDWEIGHT"
 							echo -e "\"$HOST_NAME\" pgpool.backend.role[${BACKEND}] $TIME $BACKENDROLE"
+							if [ ! -z "$BACKENDREPLICATIONDELAY" ]; then
+							    echo -e "\"$HOST_NAME\" pgpool.backend.replication_delay[${BACKEND}] $TIME $BACKENDREPLICATIONDELAY"
+							fi
 						done
 					)
 		;;
