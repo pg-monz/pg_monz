@@ -10,8 +10,14 @@ PARAM1="$5"
 
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
+source $(dirname $0)/pgsql_version
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
+if [ "`echo ${PGMAJORVERSION} | awk -F. '{ printf "%2d%02d", $1, $2 }'`" -ge 906 ]; then
+WAITING_COUNT_QUERY="select count(*) from pg_stat_activity where wait_event is not null"
+else
+WAITING_COUNT_QUERY="select count(*) from pg_stat_activity where waiting = 'true'"
+fi
 
 #===============================================================================
 #  MAIN SCRIPT
@@ -31,7 +37,7 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.idle_tx_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'idle in transaction') \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where waiting = 'true') \
+						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (${WAITING_COUNT_QUERY}) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections')" 2>&1
 					)

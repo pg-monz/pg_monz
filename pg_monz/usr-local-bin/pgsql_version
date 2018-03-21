@@ -1,0 +1,2 @@
+PGVERSION=${PGVERSION:-`psql --version | awk 'NR==1 { print $3 }'`}
+PGMAJORVERSION=`echo "$PGVERSION" | sed 's/^\([0-9]*\.[0-9]*\).*$/\1/'`
