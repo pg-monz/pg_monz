@@ -1,5 +1,7 @@
 #!/bin/bash
-
+#===============================================================================
+#  GLOBAL DECLARATIONS
+#===============================================================================
 APP_NAME="$1"
 PGSHELL_CONFDIR="$2"
 HOST_NAME="$3"
@@ -10,15 +12,41 @@ TIMESTAMP_QUERY='extract(epoch from now())::int'
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
+PGVERSION=$(psql -A -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -e 's/\([0-9]\+\.[0-9]\+\).*/\1/g')
+
+if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ]; then
+	WRITE_DIFF_FUNC='pg_wal_lsn_diff(sent_lsn, write_lsn)'
+	REPLAY_DIFF_FUNC='pg_wal_lsn_diff(sent_lsn, replay_lsn)'
+	LAG_SQL=$(cat <<-EOS
+			union all
+			select '"$HOST_NAME"', 'psql.write_lag['||host(client_addr)||']', $TIMESTAMP_QUERY, extract(epoch from (coalesce(write_lag,'00:00:00')))::text as value from pg_stat_replication
+			union all
+			select '"$HOST_NAME"', 'psql.flush_lag['||host(client_addr)||']', $TIMESTAMP_QUERY, extract(epoch from (coalesce(flush_lag,'00:00:00')))::text as value from pg_stat_replication
+			union all
+			select '"$HOST_NAME"', 'psql.replay_lag['||host(client_addr)||']', $TIMESTAMP_QUERY, extract(epoch from (coalesce(replay_lag,'00:00:00')))::text as value from pg_stat_replication
+			EOS
+)
+else
+	WRITE_DIFF_FUNC='pg_xlog_location_diff(sent_location, write_location)'
+	REPLAY_DIFF_FUNC='pg_xlog_location_diff(sent_location, replay_location)'
+	LAG_SQL=''
+fi
+
+#===============================================================================
+#  MAIN SCRIPT
+#===============================================================================
 case "$APP_NAME" in
 	pg.stat_replication)
 		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
 						"select * from ( \
-						select '\"$HOST_NAME\"', 'psql.write_diff['||host(client_addr)||']', $TIMESTAMP_QUERY, pg_xlog_location_diff(sent_location, write_location) as value from pg_stat_replication \
+						select '\"$HOST_NAME\"', 'psql.write_diff['||host(client_addr)||']', $TIMESTAMP_QUERY, $WRITE_DIFF_FUNC::text as value from pg_stat_replication \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.replay_diff['||host(client_addr)||']', $TIMESTAMP_QUERY, pg_xlog_location_diff(sent_location, replay_location) as value from pg_stat_replication \
+						select '\"$HOST_NAME\"', 'psql.replay_diff['||host(client_addr)||']', $TIMESTAMP_QUERY, $REPLAY_DIFF_FUNC::text as value from pg_stat_replication \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.sync_priority['||host(client_addr)||']', $TIMESTAMP_QUERY, sync_priority as value from pg_stat_replication \
+						select '\"$HOST_NAME\"', 'psql.sync_priority['||host(client_addr)||']', $TIMESTAMP_QUERY, sync_priority::text as value from pg_stat_replication \
+                                                union all \
+                                                select '\"$HOST_NAME\"', 'psql.sync_state['||host(client_addr)||']', $TIMESTAMP_QUERY, sync_state::text as value from pg_stat_replication \
+                                                $LAG_SQL
 						) as t where value is not null" 2>&1
 					)
 		;;
@@ -45,6 +73,10 @@ esac
 
 if [ $? -ne 0 ]; then
 	echo "$sending_data"
+	exit
+fi
+
+if [ -z "$sending_data" ]; then
 	exit
 fi
 

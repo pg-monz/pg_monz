@@ -13,6 +13,19 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
+PGVERSION=$(psql -A -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -e 's/\([0-9]\+\.[0-9]\+\).*/\1/g')
+
+if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
+	CONN_COND="where backend_type = 'client backend'"
+	LOCK_COND="and wait_event_type like '%Lock%'"
+elif [ `echo "$PGVERSION >= 9.6" | bc` -eq 1 ] ; then
+	CONN_COND=''
+	LOCK_COND="where wait_event_type like '%Lock%'"
+else
+	CONN_COND=''
+	LOCK_COND="where waiting = 'true'"
+fi
+
 #===============================================================================
 #  MAIN SCRIPT
 #===============================================================================
@@ -25,13 +38,13 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.active_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active') \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.server_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity) \
+						select '\"$HOST_NAME\"', 'psql.server_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity $CONN_COND) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.idle_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'idle') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.idle_tx_connections', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'idle in transaction') \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where waiting = 'true') \
+						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity $CONN_COND $LOCK_COND) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections')" 2>&1
 					)
