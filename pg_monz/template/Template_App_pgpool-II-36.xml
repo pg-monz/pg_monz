@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2018-03-20T00:56:58Z</date>
+    <date>2018-03-29T09:57:55Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -1155,7 +1155,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App pgpool-II-36:pgpool.backend.status[{#BACKEND}].last(0)}=3</expression>
+                            <expression>{Template App pgpool-II-36:pgpool.backend.status[{#BACKEND}].str(down)}=1</expression>
                             <name>pgpool-II backend node is down({#BACKEND}) on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
