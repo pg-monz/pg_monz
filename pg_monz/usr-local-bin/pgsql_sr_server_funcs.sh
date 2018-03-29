@@ -77,6 +77,7 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ -z "$sending_data" ]; then
+	echo 0
 	exit
 fi
 
