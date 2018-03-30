@@ -52,7 +52,7 @@ Postgres、pgpoo-II プロセスの監視を通して、スプリットブレイ
 |pgpool.cache       |インメモリクエリキャッシュ使用時のキャッシュ状況                                        |
 |pgpool.connections |pgpool-II を介したフロントエンド、バックエンドのコネクション数                          |
 |pgpool.log         |pgpool-II のログ監視                                                                    |
-|pgpool.nodes       |pgpool-II から見た各バックエンドの稼働状況、負荷分散の比率                              |
+|pgpool.nodes       |pgpool-II から見た各バックエンドの稼働状況、負荷分散の比率、レプリケーションの遅延量    |
 |pgpool.status      |pgpool-II のプロセス稼働状況、仮想 IP 保持状況                                          |
 |pgpool.watchdog    |クラスタ単位の pgpool-II のプロセス稼働状況、仮想 IP 保持状況                           |
 

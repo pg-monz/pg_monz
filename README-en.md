@@ -54,7 +54,7 @@ The following are main applications.
 |pgpool.cache       |cash informations using In Memory query Cache                                                    |
 |pgpool.connections |frontend, backend connection count through pgpool-II                                             |
 |pgpool.log         |log monitoring for pgpool-II                                                                     |
-|pgpool.nodes       |backend state, load balance ratio viewed from pgpool-II                                          |
+|pgpool.nodes       |backend state, load balance ratio and replication delay viewed from pgpool-II                                          |
 |pgpool.status      |pgpool-II processes working state, vip existence or non-existence                                |
 |pgpool.watchdog    |pgpool-II processes working state, vip existence or non-existence as a cluster                   |
 

@@ -16,6 +16,7 @@
   Template_App_PostgreSQL_SR.xml
   Template_App_PostgreSQL_SR_Cluster.xml
   Template_App_pgpool-II.xml
+  Template_App_pgpool-II-36.xml
   Template_App_pgpool-II_watchdog.xml
 
 2. Copy usr-local-etc files (pgsql_funcs.conf and pgpool_funcs.conf) to "/usr/local/etc"
