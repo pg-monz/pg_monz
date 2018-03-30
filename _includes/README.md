@@ -46,7 +46,8 @@ Templateディレクトリには以下の5つの監視テンプレートxmlが�
 |Template_App_PostgreSQL.xml|PostgreSQLサーバ単体の稼働監視用|
 |Template_App_PostgreSQL_SR.xml|Streaming Replication稼働監視用|
 |Template_App_PostgreSQL_SR_Cluster.xml|Streaming Replicationのクラスタ全体での稼働状況監視用|
-|Template_App_pgpool-II.xml|pgpool-II稼働監視用|
+|Template_App_pgpool-II.xml|pgpool-II (pgpool-II 3.5 以前) 稼働監視用|
+|Template_App_pgpool-II-36.xml|pgpool-II (pgpool-II 3.6 以降) 稼働監視用|
 |Template_App_pgpool-II_watchdog.xml|pgpool-IIのクラスタ全体での稼働状況監視用|
 
 #### （2）バックエンド処理スクリプト
@@ -70,6 +71,7 @@ pg_monz用監視テンプレートに含まれる監視アイテムキーに対�
 
 ## リリースノート {#releases}
 
+* [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
 * [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
 * [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
@@ -186,6 +188,28 @@ PGPOOLDATABASE=postgres
 PGPOOLCONF=/usr/local/etc/pgpool.conf 
 {% endhighlight %}
 
+PostgreSQL に接続するときにパスワードが必要な場合、 設定ファイル pgsql_funcs.conf に
+以下の一行を追加します。
+
+{% highlight properties %}
+export PGPASSFILE=/usr/local/etc/pgpass
+{% endhighlight %}
+
+pgsql_funcs.conf の設定値に合わせて、接続ユーザのパスワードを格納するファイル /usr/local/etc/pgpass を作成します。
+
+例えば、上記 pgsql_funcs.conf の場合
+
+##### pgpass
+
+{% highlight properties %}
+127.0.0.1:5432:*:postgres:パスワード
+{% endhighlight %}
+
+Zabbix エージェントの起動ユーザのみに権限を付与します。
+
+{% highlight properties %}
+chmod 600 /usr/local/etc/pgpass
+{% endhighlight %}
 
 #### （2）スクリプトの配置
 
@@ -332,7 +356,7 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 |pgpool.cache       |インメモリクエリキャッシュ使用時のキャッシュ状況                                        |
 |pgpool.connections |pgpool-II を介したフロントエンド、バックエンドのコネクション数                          |
 |pgpool.log         |pgpool-II のログ監視                                                                    |
-|pgpool.nodes       |pgpool-II から見た各バックエンドの稼働状況、負荷分散の比率                              |
+|pgpool.nodes       |pgpool-II から見た各バックエンドの稼働状況、負荷分散の比率、レプリケーションの遅延量    |
 |pgpool.status      |pgpool-II のプロセス稼働状況、仮想 IP 保持状況                                          |
 |pgpool.watchdog    |クラスタ単位の pgpool-II のプロセス稼働状況、仮想 IP 保持状況                           |
 

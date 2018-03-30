@@ -51,7 +51,8 @@ Template directory includes the following 5 monitoring template xml.
 |Template_App_PostgreSQL.xml|Monitoring for single PostgreSQL server|
 |Template_App_PostgreSQL_SR.xml|Monitoring for Streaming Replication|
 |Template_App_PostgreSQL_SR_Cluster.xml|Monitoring for the whole Streaming Replication cluster|
-|Template_App_pgpool-II.xml|Monitoring for pgpool-II|
+|Template_App_pgpool-II.xml|Monitoring for pgpool-II (pgpool-II 3.5 or earlier)|
+|Template_App_pgpool-II-36.xml|Monitoring for pgpool-II (pgpool-II 3.6 or later)|
 |Template_App_pgpool-II_watchdog.xml|Monitoring for the whole pgpool-II cluster|
 
 #### (2) Backend scripts
@@ -75,6 +76,7 @@ This is the configuration file to define UserParameter.
 
 ## Release notes {#releases}
 
+* [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
 * [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
 * [2014/11/17 ver.1.0.1](https://github.com/pg-monz/pg_monz/releases/tag/1.0.1)
@@ -185,6 +187,26 @@ PGPOOLPORT=9999
 PGPOOLROLE=postgres  
 PGPOOLDATABASE=postgres  
 PGPOOLCONF=/usr/local/etc/pgpool.conf 
+{% endhighlight %}
+
+If the connection to PostgreSQL requires a password, add "export PGPASSFILE=xx" to pgsql_funcs.conf.
+
+{% highlight properties %}
+export PGPASSFILE=/usr/local/etc/pgpass
+{% endhighlight %}
+
+Create /usr/local/etc/pgpass file according to the setting values of pgsql_funcs.conf.
+
+##### pgpass
+
+{% highlight properties %}
+127.0.0.1:5432:*:postgres:somepassword
+{% endhighlight %}
+
+Grant permission only to the start user of zabibx agent.
+
+{% highlight properties %}
+chmod 600 /usr/local/etc/pgpass
 {% endhighlight %}
 
 
@@ -336,7 +358,7 @@ The representative patterns are shown below:
 |pgpool.cache       |cash informations using In Memory query Cache                                           |
 |pgpool.connections |frontend, backend connection count through pgpool-II                                    |
 |pgpool.log         |log monitoring for pgpool-II                                                            |
-|pgpool.nodes       |backend state, load balance ratio viewed from pgpool-II                                 |
+|pgpool.nodes       |backend state, load balance ratio and replication delay viewed from pgpool-II           |
 |pgpool.status      |pgpool-II processes working state, vip existence or non-existence                       |
 |pgpool.watchdog    |pgpool-II processes working state, vip existence or non-existence as a cluster          |
 
