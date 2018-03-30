@@ -82,5 +82,5 @@ pg_monz を使用するには以下のソフトウェアが必要です。
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 ライセンスの内容は LICENSE ファイルを参照して下さい。
 
-Copyright (C) 2013-2016 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2016 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2018 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2018 TIS Inc. All Rights Reserved.
