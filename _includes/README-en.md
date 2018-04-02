@@ -199,13 +199,13 @@ Create /usr/local/etc/pgpass file according to the setting values of pgsql_funcs
 
 ##### pgpass
 
-{% highlight properties %}
+{% highlight bash %}
 127.0.0.1:5432:*:postgres:somepassword
 {% endhighlight %}
 
 Grant permission only to the start user of zabibx agent.
 
-{% highlight properties %}
+{% highlight bash %}
 chmod 600 /usr/local/etc/pgpass
 {% endhighlight %}
 

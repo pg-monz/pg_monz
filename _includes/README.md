@@ -201,13 +201,13 @@ pgsql_funcs.conf の設定値に合わせて、接続ユーザのパスワード
 
 ##### pgpass
 
-{% highlight properties %}
+{% highlight bash %}
 127.0.0.1:5432:*:postgres:パスワード
 {% endhighlight %}
 
 Zabbix エージェントの起動ユーザのみに権限を付与します。
 
-{% highlight properties %}
+{% highlight bash %}
 chmod 600 /usr/local/etc/pgpass
 {% endhighlight %}
 
