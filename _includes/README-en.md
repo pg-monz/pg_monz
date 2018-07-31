@@ -99,6 +99,9 @@ information.
 |PostgreSQL|9.2 or later|
 |pgpool-II|3.4.0 or later|
 
+Since bc command is executed in pg_monz backend scripts,
+bc command must be installed on the monitoring target server.
+
 ## Process flow {#flow}
 
 pg_monz v2.0 execute monitoring process under the following process flow.
