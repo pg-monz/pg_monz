@@ -13,7 +13,7 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
-PGVERSION=$(psql -A -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -e 's/\([0-9]\+\.[0-9]\+\).*/\1/g')
+PGVERSION=$(psql -A -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -e 's/\([0-9]*\.[0-9]*\).*/\1/g')
 
 if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
 	CONN_COND="where backend_type = 'client backend'"
