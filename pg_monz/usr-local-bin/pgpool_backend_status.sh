@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get status of pgpool-II database backend which you want to monitor.
 
@@ -11,7 +11,7 @@ BACKENDDB="show pool_nodes"
 TIME=` date +%s`
 
 # Load the pgpool connection option parameters.
-source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
+. $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
 case "$APP_NAME" in
 	pgpool.nodes)

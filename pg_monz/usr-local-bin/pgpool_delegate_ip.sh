@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 PGSHELL_CONFDIR="$1"
 
 # Load the psql connection option parameters.
-source $PGSHELL_CONFDIR/pgpool_funcs.conf
+. $PGSHELL_CONFDIR/pgpool_funcs.conf
 
 if [ ! -n "$PGPOOLCONF" ]; then
   echo  0
