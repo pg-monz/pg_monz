@@ -22,7 +22,7 @@ case "$APP_NAME" in
 			exit
 		fi
 
-		sending_data=$(for backendrecord in $(echo $pool_nodes); do
+		sending_data=$(echo "$pool_nodes" | while read backendrecord; do
 							BACKENDID=`echo $backendrecord | awk -F, '{print $1}'`
 							BACKENDNAME=`echo $backendrecord | awk -F, '{print $2}'`
 							BACKENDPORT=`echo $backendrecord | awk -F, '{print $3}'`
@@ -31,11 +31,15 @@ case "$APP_NAME" in
 							BACKENDWEIGHT=`echo $backendrecord | awk -F, '{print $5}'`
 							BACKENDROLE=`echo $backendrecord | awk -F, '{print $6}'`
 							BACKENDREPLICATIONDELAY=`echo $backendrecord | awk -F, '{print $9}'`
+							BACKENDLASTSTATUSCHANGE=`echo $backendrecord | awk -F, '{print $10}'`
 							echo -e "\"$HOST_NAME\" pgpool.backend.status[${BACKEND}] $TIME $BACKENDSTATE"
 							echo -e "\"$HOST_NAME\" pgpool.backend.weight[${BACKEND}] $TIME $BACKENDWEIGHT"
 							echo -e "\"$HOST_NAME\" pgpool.backend.role[${BACKEND}] $TIME $BACKENDROLE"
 							if [ ! -z "$BACKENDREPLICATIONDELAY" ]; then
 							    echo -e "\"$HOST_NAME\" pgpool.backend.replication_delay[${BACKEND}] $TIME $BACKENDREPLICATIONDELAY"
+							fi
+							if [ ! -z "$BACKENDLASTSTATUSCHANGE" ]; then
+							    echo -e "\"$HOST_NAME\" pgpool.backend.last_status_change[${BACKEND}] $TIME $BACKENDLASTSTATUSCHANGE"
 							fi
 						done
 					)
