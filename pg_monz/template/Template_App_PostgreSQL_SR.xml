@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2018-03-29T04:33:59Z</date>
+    <date>2018-10-30T02:50:54Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -78,7 +78,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,wal receiver]</key>
+                    <key>proc.num[postgres,,,wal ?receiver]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -121,7 +121,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[postgres,,,wal sender]</key>
+                    <key>proc.num[postgres,,,wal ?sender]</key>
                     <delay>300</delay>
                     <history>90</history>
                     <trends>365</trends>
