@@ -13,6 +13,8 @@ TIME=` date +%s`
 # Load the pgpool connection option parameters.
 source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
+IFS=$'\n'
+
 case "$APP_NAME" in
 	pgpool.nodes)
 		pool_nodes=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${BACKENDDB}" 2>&1)
@@ -22,7 +24,7 @@ case "$APP_NAME" in
 			exit
 		fi
 
-		sending_data=$(echo "$pool_nodes" | while read backendrecord; do
+		sending_data=$(for backendrecord in $pool_nodes; do
 							BACKENDID=`echo $backendrecord | awk -F, '{print $1}'`
 							BACKENDNAME=`echo $backendrecord | awk -F, '{print $2}'`
 							BACKENDPORT=`echo $backendrecord | awk -F, '{print $3}'`

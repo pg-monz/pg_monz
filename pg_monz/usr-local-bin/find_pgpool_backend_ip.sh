@@ -35,7 +35,8 @@ if [ $? -ne 0 ]; then
 	exit
 fi
 
-echo "$result" | while read backendrecord; do
+IFS=$'\n'
+for backendrecord in $result; do
 	BACKENDID=`echo $backendrecord | awk -F, '{print $1}'`
 	BACKENDNAME=`echo $backendrecord | awk -F, '{print $2}'`
 	BACKENDPORT=`echo $backendrecord | awk -F, '{print $3}'`
