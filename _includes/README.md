@@ -71,6 +71,7 @@ pg_monz用監視テンプレートに含まれる監視アイテムキーに対�
 
 ## リリースノート {#releases}
 
+* [2018/10/31 ver.2.2](https://github.com/pg-monz/pg_monz/releases/tag/2.2)
 * [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
 * [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
@@ -278,6 +279,7 @@ ZabbixのWebインターフェースの[設定]→[テンプレート]→[マク
 |{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |pg-monz設定ファイル配置ディレクトリ             |
 
 ##### Template App pgpool-II
+##### Template App pgpool-II-36
 
 |マクロ                    |デフォルト値                  |説明                                            |
 |--------------------------|------------------------------|------------------------------------------------|
@@ -320,7 +322,8 @@ ZabbixのWebインターフェース上で監視対象となるホストおよ�
 
 1. [設定] - [ホスト]を選択し、ホスト一覧を表示します。 
 2. 右上の[ホストの作成]をクリックし、pgpool-IIサーバのホスト名等を設定します。 
-3. [テンプレート] - [新規テンプレートをリンク]より、「Template App pgpool-II」を検索して[追加]、[保存]をクリックします。  
+3. [テンプレート] - [新規テンプレートをリンク]より、適用するテンプレート(※）を検索して[追加]、[保存]をクリックします。  
+   ※pgpool-II 3.6 以降の場合「Template App pgpool-II-36」、pgpool-II 3.5 以前の場合「Template App pgpool-II」
 4. [設定] - [ホストグループ] - [ホストグループの作成]をクリックし、グループ名に「pgpool」、グループに含まれるホストに作成したpgpool-IIホストを追加し、[保存]をクリックします。
 
 #### PostgreSQL Clusterホストの作成

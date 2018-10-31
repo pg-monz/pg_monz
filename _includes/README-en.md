@@ -76,6 +76,7 @@ This is the configuration file to define UserParameter.
 
 ## Release notes {#releases}
 
+* [2018/10/31 ver.2.2](https://github.com/pg-monz/pg_monz/releases/tag/2.2)
 * [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
 * [2015/03/31 ver.2.0](https://github.com/pg-monz/pg_monz/releases/tag/2.0)
@@ -278,6 +279,7 @@ Modify the configuration of tempalte macros according to the system environments
 |{$PGSCRIPT_CONFDIR}       |/usr/local/etc                |Directory that contains pg_monz configuration files |
 
 ##### Template App pgpool-II
+##### Template App pgpool-II-36
 
 |Macro name                |Default Value                 |Description                                     |
 |--------------------------|------------------------------|------------------------------------------------|
