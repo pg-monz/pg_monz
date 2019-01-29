@@ -9,7 +9,7 @@ POOL_STATUS="show pool_status"
 # Load the pgpool connection option parameters.
 source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
-config=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${POOL_STATUS}" 2>&1)
+config=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -X -c "${POOL_STATUS}" 2>&1)
 if [ $? -ne 0 ]; then
 	echo "$config"
 	exit

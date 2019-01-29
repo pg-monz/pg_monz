@@ -17,7 +17,7 @@ IFS=$'\n'
 
 case "$APP_NAME" in
 	pgpool.nodes)
-		pool_nodes=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -c "${BACKENDDB}" 2>&1)
+		pool_nodes=$(psql -A --field-separator=',' -h $PGPOOLHOST -p $PGPOOLPORT -U $PGPOOLROLE -d $PGPOOLDATABASE -t -X -c "${BACKENDDB}" 2>&1)
 
 		if [ $? -ne 0 ]; then
 			echo "$pool_nodes"

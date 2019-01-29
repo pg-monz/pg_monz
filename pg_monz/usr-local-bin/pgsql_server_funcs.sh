@@ -13,7 +13,7 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
-PGVERSION=$(psql -A -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
+PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
 
 if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
 	CONN_COND="where backend_type = 'client backend'"
@@ -31,7 +31,7 @@ fi
 #===============================================================================
 case "$APP_NAME" in
 	pg.transactions)
-		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c  \
+		sending_data=$(psql -A --field-separator=' ' -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c  \
 						"select '\"$HOST_NAME\"', 'psql.tx_commited', $TIMESTAMP_QUERY, (select sum(xact_commit) from pg_stat_database) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.tx_rolledback', $TIMESTAMP_QUERY, (select sum(xact_rollback) from pg_stat_database) \
@@ -50,7 +50,7 @@ case "$APP_NAME" in
 					)
 		;;
 	pg.bgwriter)
-		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
+		sending_data=$(psql -A --field-separator=' ' -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
 						"select '\"$HOST_NAME\"', 'psql.buffers_alloc', $TIMESTAMP_QUERY, (select buffers_alloc from pg_stat_bgwriter) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.buffers_backend', $TIMESTAMP_QUERY, (select buffers_backend from pg_stat_bgwriter) \
@@ -69,7 +69,7 @@ case "$APP_NAME" in
 					)
 		;;
 	pg.slow_query)
-		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
+		sending_data=$(psql -A --field-separator=' ' -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c \
 						"select '\"$HOST_NAME\"', 'psql.slow_dml_queries', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active' and now() - query_start > '$PARAM1 sec'::interval and query ~* '^(insert|update|delete)') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.slow_queries', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity where state = 'active' and now() - query_start > '$PARAM1 sec'::interval) \
