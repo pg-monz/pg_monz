@@ -13,7 +13,7 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 case "$APP_NAME" in
 	pg.size)
-		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $DBNAME -c  \
+		sending_data=$(psql -A --field-separator=' ' -t -X -h $PGHOST -p $PGPORT -U $PGROLE $DBNAME -c  \
 						"select '\"$HOST_NAME\"', 'psql.db_size[$DBNAME]', $TIMESTAMP_QUERY, (select pg_database_size('$DBNAME')) \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.db_garbage_ratio[$DBNAME]', $TIMESTAMP_QUERY, ( \

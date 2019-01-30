@@ -41,7 +41,7 @@ GETTABLE="select row_to_json(t) from (select current_database() as \"{#DBNAME}\"
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 # This low level discovery rules are disabled by deafult.
-dbname_list=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE -t -c "${GETDB}" 2>&1)
+dbname_list=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE -t -X -c "${GETDB}" 2>&1)
 if [ $? -ne 0 ]; then
 	echo "$dbname_list"
 	exit
@@ -49,7 +49,7 @@ fi
 
 IFS=$'\n'
 for dbname in $dbname_list; do
-	tablename_list=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d ${dbname# } -t -c "${GETTABLE}" 2>&1)
+	tablename_list=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d ${dbname# } -t -X -c "${GETTABLE}" 2>&1)
 	if [ $? -ne 0 ]; then
 		echo "$tablename_list"
 		exit

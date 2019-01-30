@@ -15,7 +15,7 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 case "$APP_NAME" in
 	pg.stat_table)
-		sending_data=$(psql -A --field-separator=' ' -t -h $PGHOST -p $PGPORT -U $PGROLE $DBNAME -c \
+		sending_data=$(psql -A --field-separator=' ' -t -X -h $PGHOST -p $PGPORT -U $PGROLE $DBNAME -c \
 						"select '\"$HOST_NAME\"', 'psql.table_analyze_count[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select analyze_count from pg_stat_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
 						union all \
 						select '\"$HOST_NAME\"', 'psql.table_autoanalyze_count[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select autoanalyze_count from pg_stat_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME') \
