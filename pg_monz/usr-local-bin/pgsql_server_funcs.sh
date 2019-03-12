@@ -46,7 +46,9 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity $CONN_COND $LOCK_COND) \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections')" 2>&1
+						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections') \
+						union all \
+						select '\"$HOST_NAME\"', 'psql.xlog', $TIMESTAMP_QUERY,  (select count(*) AS segments from pg_ls_waldir() where name ~ '^[0-9A-Z]{24}\$')" 2>&1
 					)
 		;;
 	pg.bgwriter)
