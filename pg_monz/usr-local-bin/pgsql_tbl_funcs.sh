@@ -50,7 +50,7 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.table_garbage_ratio[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select round(100*(CASE (n_live_tup+n_dead_tup) WHEN 0 THEN 0 ELSE (n_dead_tup/(n_live_tup+n_dead_tup)::numeric) END),2) from pg_stat_user_tables where schemaname = '$SCHEMANAME' and relname = '$TABLENAME')
 						union all \
-						select '\"$HOST_NAME\"', 'psql.table_total_size[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select pg_total_relation_size('${SCHEMANAME}.${TABLENAME}'))" 2>&1
+						select '\"$HOST_NAME\"', 'psql.table_total_size[$DBNAME,$SCHEMANAME,$TABLENAME]', $TIMESTAMP_QUERY, (select pg_total_relation_size('${SCHEMANAME}.\"${TABLENAME}\"'))" 2>&1
 					)
 		;;
 	*)
