@@ -11,19 +11,46 @@ PARAM1="$5"
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
+# Script required GNU sed which is not always the default so need to use gsed instead
+LOCALGSED="sed"
+gsed --version 2> /dev/null | grep -q "GNU"
+if [ $? -eq 0 ]; then
+	LOCALGSED="gsed"
+fi
+
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
-PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
+PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | $LOCALGSED -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
 
-if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
-	CONN_COND="where backend_type = 'client backend'"
-	LOCK_COND="and wait_event_type like '%Lock%'"
-elif [ `echo "$PGVERSION >= 9.6" | bc` -eq 1 ] ; then
-	CONN_COND=''
-	LOCK_COND="where wait_event_type like '%Lock%'"
+# If the expected bc is not found, for exemple on Solaris/SmartOS, switch to awk
+bc --version > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
+		CONN_COND="where backend_type = 'client backend'"
+		LOCK_COND="and wait_event_type like '%Lock%'"
+	elif [ `echo "$PGVERSION >= 9.6" | bc` -eq 1 ] ; then
+		CONN_COND=''
+		LOCK_COND="where wait_event_type like '%Lock%'"
+	else
+		CONN_COND=''
+		LOCK_COND="where waiting = 'true'"
+	fi
 else
-	CONN_COND=''
-	LOCK_COND="where waiting = 'true'"
+	CONN_COND=$(awk -v PGVERSION=$PGVERSION 'BEGIN {
+		if ( PGVERSION >= 10.0 )
+		{ print "where backend_type = '"'"'client backend'"'"'" }
+			else if ( PGVERSION >= 9.6 )
+			{ print "" }
+			else { print "" }
+		}')
+
+	LOCK_COND=$(awk -v PGVERSION=$PGVERSION 'BEGIN {
+		if ( PGVERSION >= 10.0 )
+		{ print "and wait_event_type like '"'"'%Lock%'"'"'" }
+			else if ( PGVERSION >= 9.6 )
+			{ print "where wait_event_type like '"'"'%Lock%'"'"'" }
+			else { print "where waiting = '"'"'true'"'"'" }
+		}')
 fi
 
 #===============================================================================
