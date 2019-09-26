@@ -13,12 +13,12 @@ source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
-PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
+PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c "SELECT current_setting('server_version_num')")
 
-if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ] ; then
+if [ $PGVERSION -ge 100000 ]; then
 	CONN_COND="where backend_type = 'client backend'"
 	LOCK_COND="and wait_event_type like '%Lock%'"
-elif [ `echo "$PGVERSION >= 9.6" | bc` -eq 1 ] ; then
+elif [ $PGVERSION -ge 90600 ]; then
 	CONN_COND=''
 	LOCK_COND="where wait_event_type like '%Lock%'"
 else

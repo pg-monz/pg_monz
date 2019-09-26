@@ -12,9 +12,9 @@ TIMESTAMP_QUERY='extract(epoch from now())::int'
 # Load the psql connection option parameters.
 source $PGSHELL_CONFDIR/pgsql_funcs.conf
 
-PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c 'select * from version()' | cut -d ' ' -f 2 | sed -n 's/^\([0-9]\+\(\.[0-9]\+\)\?\).*$/\1/p')
+PGVERSION=$(psql -A -t -X -h $PGHOST -p $PGPORT -U $PGROLE $PGDATABASE -c "SELECT current_setting('server_version_num')")
 
-if [ `echo "$PGVERSION >= 10.0" | bc` -eq 1 ]; then
+if [ $PGVERSION -ge 100000 ]; then
 	WRITE_DIFF_FUNC='pg_wal_lsn_diff(sent_lsn, write_lsn)'
 	REPLAY_DIFF_FUNC='pg_wal_lsn_diff(sent_lsn, replay_lsn)'
 	LAG_SQL=$(cat <<-EOS
