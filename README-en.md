@@ -72,8 +72,6 @@ pg_monz requires the following software products:
 * PostgreSQL 9.2 or later
 * pgpool-II 3.4.0 or later
 
-Since bc command is executed in pg_monz backend scripts, bc command must be installed on the monitoring target server.
-
 
 Installation and usage
 ----------------------
