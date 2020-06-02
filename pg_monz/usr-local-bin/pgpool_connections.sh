@@ -40,7 +40,7 @@ case "$APP_NAME" in
 esac
 
 result=$(echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
-response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
+response=$(echo "$result" | awk -F ';' '$1 ~ /^(info|sent)/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
 if [ -n "$response" ]; then
 	echo "$response"
 else
