@@ -46,7 +46,9 @@ case "$APP_NAME" in
 						union all \
 						select '\"$HOST_NAME\"', 'psql.locks_waiting', $TIMESTAMP_QUERY, (select count(*) from pg_stat_activity $CONN_COND $LOCK_COND) \
 						union all \
-						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections')" 2>&1
+						select '\"$HOST_NAME\"', 'psql.server_maxcon', $TIMESTAMP_QUERY, (select setting::int from pg_settings where name = 'max_connections') \
+						union all \
+						select '\"$HOST_NAME\"', 'psql.xlog', $TIMESTAMP_QUERY,  (select count(*) AS segments from pg_ls_waldir() where name ~ '^[0-9A-Z]{24}\$')" 2>&1
 					)
 		;;
 	pg.bgwriter)
@@ -89,7 +91,7 @@ if [ $? -ne 0 ]; then
 fi
 
 result=$(echo "$sending_data" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
-response=$(echo "$result" | awk -F ';' '$1 ~ /^info/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
+response=$(echo "$result" | awk -F ';' '$1 ~ /^(info|sent)/ && match($1,/[0-9].*$/) {sum+=substr($1,RSTART,RLENGTH)} END {print sum}')
 if [ -n "$response" ]; then
 	echo "$response"
 else
