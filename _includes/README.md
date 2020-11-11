@@ -1,3 +1,6 @@
+pg_monzはZabbix 5.0には対応せず、Zabbix 4.0のフルサポート終了**2021/10**をもってメンテナンスを終了します。
+PostgreSQL監視はZabbix 5.0以降では標準テンプレートの利用を推奨します。
+
 ## pg_monz とは {#about}
 
 PostgreSQL monitoring template for Zabbix (pg_monz) は、ZabbixでPostgreSQLの各種監視を行うためのテンプレートです。
