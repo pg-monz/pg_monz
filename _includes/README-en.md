@@ -1,5 +1,5 @@
-With the end of full support of Zabbix 4.0, maintenance for pg_monz will end in **October 2021**.
-For PostgreSQL monitoring, it is recommended to use standard template in Zabbix 5.0 or later.
+__[Note] With the end of full support of Zabbix 4.0, maintenance for pg_monz will end in October 2021.
+For PostgreSQL monitoring, it is recommended to use standard template in Zabbix 5.0 or later.__
 
 ## About pg_monz {#about}
 
