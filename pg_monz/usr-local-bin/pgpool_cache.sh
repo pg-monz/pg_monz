@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get list of pgpool-II database backend name which you want to monitor.
 
@@ -11,7 +11,7 @@ POOL="show pool_cache"
 TIME=` date +%s`
 
 # Load the pgpool connection option parameters.
-source $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
+. $PGPOOLSHELL_CONFDIR/pgpool_funcs.conf
 
 case "$APP_NAME" in
 	pgpool.cache)

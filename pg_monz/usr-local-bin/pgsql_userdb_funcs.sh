@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 APP_NAME="$1"
 PGSHELL_CONFDIR="$2"
@@ -9,7 +9,7 @@ DBNAME="$5"
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 
 # Load the psql connection option parameters.
-source $PGSHELL_CONFDIR/pgsql_funcs.conf
+. $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 case "$APP_NAME" in
 	pg.size)

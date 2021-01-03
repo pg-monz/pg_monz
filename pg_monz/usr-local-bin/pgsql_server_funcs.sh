@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #===============================================================================
 #  GLOBAL DECLARATIONS
 #===============================================================================
@@ -9,7 +9,7 @@ ZABBIX_AGENTD_CONF="$4"
 PARAM1="$5"
 
 # Load the psql connection option parameters.
-source $PGSHELL_CONFDIR/pgsql_funcs.conf
+. $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 TIMESTAMP_QUERY='extract(epoch from now())::int'
 

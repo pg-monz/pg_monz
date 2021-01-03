@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PGSHELL_CONFDIR="$1"
 
@@ -38,7 +38,7 @@ GETDB="select datname from pg_database where datistemplate = 'f';"
 GETTABLE="select row_to_json(t) from (select current_database() as \"{#DBNAME}\",schemaname as \"{#SCHEMANAME}\",tablename as \"{#TABLENAME}\" from pg_tables where schemaname not in ('pg_catalog','information_schema')) as t"
 
 # Load the psql connection option parameters.
-source $PGSHELL_CONFDIR/pgsql_funcs.conf
+. $PGSHELL_CONFDIR/pgsql_funcs.conf
 
 # This low level discovery rules are disabled by deafult.
 dbname_list=$(psql -h $PGHOST -p $PGPORT -U $PGROLE -d $PGDATABASE -t -X -c "${GETDB}" 2>&1)
