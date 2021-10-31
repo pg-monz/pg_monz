@@ -1,3 +1,5 @@
+**Maintenance for pg_monz ended on October 31, 2021.**
+
 pg_monz 2.0
 ============================
 pg_monz (PostgreSQL monitoring template for Zabbix) is a Zabbix template for
@@ -84,5 +86,5 @@ License
 pg_monz is distributed under the Apache License Version 2.0.
 See the LICENSE file for details.
 
-Copyright (C) 2013-2018 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2018 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2021 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2021 TIS Inc. All Rights Reserved.
