@@ -1,4 +1,4 @@
-__[Note] With the end of full support of Zabbix 4.0, maintenance for pg_monz will end in October 2021.
+__[Note] With the end of full support of Zabbix 4.0, maintenance for pg_monz ended on October 31, 2021.
 For PostgreSQL monitoring, it is recommended to use standard template in Zabbix 5.0 or later.__
 
 ## About pg_monz {#about}
@@ -79,6 +79,7 @@ This is the configuration file to define UserParameter.
 
 ## Release notes {#releases}
 
+* [2021/10/31 ver.2.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.2.1)
 * [2018/10/31 ver.2.2](https://github.com/pg-monz/pg_monz/releases/tag/2.2)
 * [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
@@ -382,5 +383,5 @@ pg_monz Users Group
 pg_monz is distributed under the Apache License Version 2.0. 
 The whole text of Apache License Version 2.0 can be referred to [here](https://www.apache.org/licenses/LICENSE-2.0).
 
-Copyright (C) 2013-2018 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2018 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2021 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2021 TIS Inc. All Rights Reserved.

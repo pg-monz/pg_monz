@@ -1,4 +1,4 @@
-__【注意】 pg_monzはZabbix 5.0には対応せず、Zabbix 4.0のフルサポート終了2021/10をもってメンテナンスを終了します。
+__【注意】 pg_monzはZabbix 5.0には対応せず、Zabbix 4.0のフルサポート終了2021年10月31日をもってメンテナンスを終了しました。
 PostgreSQL監視はZabbix 5.0以降では標準テンプレートの利用を推奨します。__
 
 ## pg_monz とは {#about}
@@ -74,6 +74,7 @@ pg_monz用監視テンプレートに含まれる監視アイテムキーに対�
 
 ## リリースノート {#releases}
 
+* [2021/10/31 ver.2.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.2.1)
 * [2018/10/31 ver.2.2](https://github.com/pg-monz/pg_monz/releases/tag/2.2)
 * [2018/03/30 ver.2.1](https://github.com/pg-monz/pg_monz/releases/tag/2.1)
 * [2016/04/21 ver.2.0.1](https://github.com/pg-monz/pg_monz/releases/tag/2.0.1)
@@ -381,5 +382,5 @@ pg_monzユーザーグループ
 pg_monz は Apache License Version 2.0 の元で配布されています。  
 Apache License Version 2.0 の全文は [こちら](https://www.apache.org/licenses/LICENSE-2.0) からご覧頂くことが可能です。
 
-Copyright (C) 2013-2018 SRA OSS, Inc. Japan All Rights Reserved.  
-Copyright (C) 2013-2018 TIS Inc. All Rights Reserved.
+Copyright (C) 2013-2021 SRA OSS, Inc. Japan All Rights Reserved.  
+Copyright (C) 2013-2021 TIS Inc. All Rights Reserved.
